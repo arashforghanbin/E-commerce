@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "IranSansDN";
+  src: url("../src/assets/fonts/IRANSansDN.eot");
+  src: url("../src/assets/fonts/IRANSansDN.eot") format("embedded-opentype"),
+    url("../src/assets/fonts/IRANSansDN.woff") format("woff"),
+    url("../src/assets/fonts/IRANSansDN.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "IranSansDN";
+}
