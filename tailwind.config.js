@@ -1,10 +1,34 @@
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/assets/icons/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        spinOnce: "spinOnce 0.3s linear",
+        slideDown: "slideDown 0.5s linear",
+      },
+      keyframes: {
+        spinOnce: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        slideDown: {
+          "0%": {
+            transform: "translateY(0px)",
+          },
+          "100%": {
+            transform: "translateY(300px)",
+          },
+        },
+      },
+    },
     colors: {
       red: "#DC3A35",
       red: {
