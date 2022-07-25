@@ -1,0 +1,10 @@
+.swiper-pagination-bullet {
+  border: 2px solid #dc3a35;
+  width: 1rem !important;
+  height: 1rem !important;
+  margin-bottom: 1rem;
+}
+
+:root {
+  --swiper-theme-color: #dc3a35 !important;
+}

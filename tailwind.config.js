@@ -30,13 +30,16 @@ module.exports = {
       },
     },
     colors: {
-      red: "#DC3A35",
       red: {
         600: "#DC3A35",
         500: "#E77572",
         400: "#EC937F",
       },
-      green: "#89BE5A",
+      green: {
+        500: "#a1cb7b",
+        600: "#89BE5A",
+        700: "#6e9848",
+      },
       gray: "#737373",
       yellow: {
         300: "#FFFCB5",

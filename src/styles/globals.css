@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "IranSansDN";
-  src: url("../assets/fonts/IRANSansDN.eot");
-  src: url("../assets/fonts/IRANSansDN.eot") format("embedded-opentype"),
-    url("../assets/fonts/IRANSansDN.woff") format("woff"),
-    url("../assets/fonts/IRANSansDN.ttf") format("truetype");
+  font-family: "Samim";
+  src: url("../assets/fonts/Samim.eot"), url("../assets/fonts/Samim-Bold.eot");
+  src: url("../assets/fonts/Samim.eot") format("embedded-opentype"),
+    url("../assets/fonts/Samim-Bold.eot") format("embedded-opentype"),
+    url("../assets/fonts/Samim.woff") format("woff"),
+    url("../assets/fonts/Samim-Bold.woff") format("woff"),
+    url("../assets/fonts/Samim-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Samim.woff2") format("woff2"),
+    url("../assets/fonts/Samim-Bold.ttf") format("truetype"),
+    url("../assets/fonts/Samim.ttf") format("truetype");
 }
 
 * {
@@ -18,7 +23,11 @@
 
 body,
 html {
-  font-family: "IranSansDN";
-  min-height: 100vh;
+  font-family: "Samim";
+
   background: #fffeda;
+}
+
+:root {
+  min-height: 100%;
 }

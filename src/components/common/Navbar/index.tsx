@@ -13,10 +13,10 @@ const Navbar = () => {
           <Logo />
         </div>
         <div className="flex flex-grow justify-center gap-10 text-yellow-300">
-          <a className="cursor-pointer">صفحه اصلی</a>
-          <a className="cursor-pointer">محصولات</a>
-          <a className="cursor-pointer">درباره ما</a>
-          <a className="cursor-pointer">تماس با ما</a>
+          <a className="cursor-pointer font-bold">صفحه اصلی</a>
+          <a className="cursor-pointer font-bold">محصولات</a>
+          <a className="cursor-pointer font-bold">درباره ما</a>
+          <a className="cursor-pointer font-bold">تماس با ما</a>
         </div>
         <div className="flex gap-4">
           <IconButton onClick={() => setAnimationEffect(true)}>

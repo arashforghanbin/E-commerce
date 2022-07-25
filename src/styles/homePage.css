@@ -1,0 +1,32 @@
+.hero::before {
+  content: "";
+  background: linear-gradient(
+      90deg,
+      rgba(255, 254, 218, 1) 5%,
+      rgba(255, 255, 255, 0) 10%,
+      rgba(255, 255, 255, 0) 80%,
+      rgba(255, 254, 218, 1) 90%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 254, 218, 1) 6%,
+      rgba(255, 255, 255, 0) 25%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 254, 218, 1) 90%
+    ),
+    url("../assets/imgs/pattern.png");
+  position: absolute;
+  background-repeat: no-repeat;
+  height: 85%;
+  width: 100%;
+}
+
+.hero-title {
+  background-image: url("../assets/imgs/textshape1.svg");
+  width: 12.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 8rem;
+  padding: 1.2rem 0.8rem;
+  transform: translateX(0%);
+}
