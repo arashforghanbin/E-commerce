@@ -6,14 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "api": "json-server --watch ./src/database/db.json --port 3004"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
+    "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "formik": "^2.2.9",
+    "json-server": "^0.17.0",
     "next": "12.2.2",
+    "next-redux-wrapper": "^7.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.0.2",
+    "redux-persist": "^6.0.0",
     "swiper": "^8.3.1",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
@@ -22,6 +29,7 @@
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
+    "@types/uuid": "^8.3.4",
     "autoprefixer": "^10.4.7",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.2",

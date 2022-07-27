@@ -7,7 +7,7 @@ import IconButton from "../../custom/IconButton";
 
 const Navbar = () => {
   return (
-    <nav className="bg-red-600 w-full h-[5.5rem] flex items-center justify-center">
+    <nav className="bg-red-600 w-full h-[5.5rem] flex items-center justify-center shadow-xl">
       <div className="container flex items-center justify-center">
         <div>
           <Logo />

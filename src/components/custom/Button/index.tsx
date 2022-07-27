@@ -19,9 +19,9 @@ const Button = ({
   const buttonClasses = classNames(
     "rounded-lg font-bold shadow-lg",
     variant === "primary"
-      ? "text-yellow-300 bg-red-600 shadow-red-500"
+      ? "text-yellow-300 bg-red-600 shadow-red-500 hover:bg-red-700 active:bg-red-800"
       : variant === "secondary"
-      ? "text-white bg-green-600 "
+      ? "text-white bg-green-600 hover:bg-green-700 active:bg-green-500"
       : "text-red-600",
     size === "lg"
       ? "text-3xl py-6 px-14"

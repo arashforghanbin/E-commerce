@@ -3,6 +3,9 @@ import Head from "next/head";
 import "../src/styles/globals.css";
 import "../src/styles/homePage.css";
 import "../src/styles/swiper.css";
+import { persistore, store } from "../redux/store";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div dir="rtl" className="h-[100vh]">
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <PersistGate persistor={persistore}>
+            <Component {...pageProps} />
+          </PersistGate>
+        </Provider>
       </div>
     </>
   );

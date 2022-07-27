@@ -3,8 +3,18 @@
   width: 1rem !important;
   height: 1rem !important;
   margin-bottom: 1rem;
+  transform: translate(50%, 150%);
 }
 
 :root {
   --swiper-theme-color: #dc3a35 !important;
+}
+
+.swiper-wrapper {
+  width: 50% !important;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: flex-end;
 }
