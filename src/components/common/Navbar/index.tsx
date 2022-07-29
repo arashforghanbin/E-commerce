@@ -19,7 +19,7 @@ const Navbar = () => {
           <a className="cursor-pointer font-bold">تماس با ما</a>
         </div>
         <div className="flex gap-4">
-          <IconButton onClick={() => setAnimationEffect(true)}>
+          <IconButton onClick={() => console.log(true)}>
             <Search />
           </IconButton>
           <IconButton>

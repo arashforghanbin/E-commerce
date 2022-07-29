@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Button from "../src/components/custom/Button";
 import Layout from "../src/components/Layout";
 import Head from "next/head";
 import NewsLetter from "../src/components/custom/NewsLetter";
@@ -7,35 +6,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation, Pagination, Autoplay } from "swiper";
-import hero1 from "../src/assets/imgs/Main-imgs.png";
-import hero2 from "../src/assets/imgs/hero2.png";
-import hero3 from "../src/assets/imgs/hero3.png";
-import Image from "next/image";
+import { Navigation, Controller } from "swiper";
 import SmallCard from "../src/components/custom/SmallCard/smallCard";
 import axios from "axios";
-import { useEffect } from "react";
-import { sortByFavorite } from "../src/utils";
-import {
-  SwiperNextButton,
-  SwiperPrevButton,
-} from "../src/components/custom/SwiperButton";
+import { useEffect, useState } from "react";
+import HeroSection from "../src/components/custom/HeroSection";
 const URL = "http://localhost:3004/productsList";
 
+interface Product {
+  id: string;
+  productName: string;
+  price: number;
+  category: string;
+  file: string;
+  discount: number;
+  clicked: number;
+  bought: number;
+  taste: string;
+  engName: string;
+  weight: number;
+}
+
 const Home: NextPage = () => {
-  interface Product {
-    id: string;
-    productName: string;
-    price: number;
-    category: string;
-    file: string;
-    discount: number;
-    clicked: number;
-    bought: number;
-    taste: string;
-    engName: string;
-    weight: number;
-  }
+  const [controlledSwiper, setControlledSwiper] = useState<any | null>(null);
   let tenFavProducts: {}[];
 
   const handleGetData = async () => {
@@ -51,6 +44,13 @@ const Home: NextPage = () => {
     handleGetData();
   });
 
+  const handlePrevSlide = () => {
+    controlledSwiper.slidePrev();
+  };
+  const handleNextSlide = () => {
+    controlledSwiper.slideNext();
+  };
+  console.log(controlledSwiper);
   return (
     <>
       <Head>
@@ -59,58 +59,30 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <main className="container mx-auto flex flex-col flex-grow relative">
-          <section className="w-full">
-            <Swiper
-              className="h-[31rem] w-full mt-11 flex  items-center justify-between flex-row-reverse hero mb-28"
-              direction="vertical"
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Pagination, Autoplay]}
-            >
-              <div className="w-1/3 z-10">
-                <h1 className="text-red-600 text-4xl mb-4 font-bold leading-loose  z-20">
-                  <span className="ml-1 text-yellow-300 hero-title">
-                    لورم ایپسوم{" "}
-                  </span>
-                  متن ساختگی
-                  <br /> با تولید سادگی نامفهوم
-                </h1>
-                <p className="leading-loose mb-11 translate-x-[-8%]">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
-                  با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
-                  مجله است
-                </p>
-                <Button variant="primary">مشاهده</Button>
-              </div>
-              <div>
-                <SwiperSlide className="hero-slides">
-                  <Image src={hero1} width={636} height={484} />
-                </SwiperSlide>
-                <SwiperSlide className="hero-slides">
-                  <Image src={hero2} width={636} height={484} />
-                </SwiperSlide>
-                <SwiperSlide className="hero-slides">
-                  <Image src={hero3} width={636} height={484} />
-                </SwiperSlide>
-              </div>
-            </Swiper>
-          </section>
+          <HeroSection />
 
           <section className="flex flex-col gap-8">
-            <h3 className="text-red-600 text-xl font-bold mx-auto">
-              <span className="ml-1 text-yellow-300 favorite">محبوب ترین </span>
-              محصولات
-            </h3>
+            <div className="flex">
+              <div>
+                <button onClick={() => handlePrevSlide()}>قبلی</button>
+                <button onClick={() => handleNextSlide()}>بعدی</button>
+              </div>
+              <h3 className="text-red-600 text-xl font-bold mx-auto">
+                <span className="ml-1 text-yellow-300 favorite">
+                  محبوب ترین{" "}
+                </span>
+                محصولات
+              </h3>
+            </div>
             <div className="mb-28 bg-red-600 rounded-xl shadow-lg  shadow-red-400 p-4">
-              <Swiper slidesPerView={5.5} spaceBetween={0} className="mySwiper">
-                <SwiperNextButton />
-                <SwiperPrevButton />
-
+              <Swiper
+                onSwiper={setControlledSwiper}
+                navigation={true}
+                slidesPerView={5.5}
+                spaceBetween={0}
+                className="mySwiper"
+                modules={[Navigation, Controller]}
+              >
                 <SwiperSlide>
                   <SmallCard
                     productName="اسمارتیز خوشمزه"
