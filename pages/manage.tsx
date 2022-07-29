@@ -17,7 +17,7 @@ const Manage: NextPage = () => {
   const [madeIn, setMadeIn] = useState("");
   const [taste, setTaste] = useState("");
   const [engName, setEngName] = useState("");
-  const [weight, setWeight] = useState(0);
+  const [weight, setWeight] = useState<number | null>(0);
 
   const handleAddProduct = async (e: FormEvent) => {
     e.preventDefault();

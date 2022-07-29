@@ -12,9 +12,10 @@
 
 .swiper-wrapper {
   width: 50% !important;
+  overflow: visible !important;
 }
 
-.swiper-slide {
+.hero-slides {
   display: flex;
   justify-content: flex-end;
 }

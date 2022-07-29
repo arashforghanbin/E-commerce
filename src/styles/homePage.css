@@ -30,3 +30,12 @@
   padding: 1.2rem 0.8rem;
   transform: translateX(0%);
 }
+
+.favorite {
+  background-image: url("../assets/imgs/rectfav.png");
+  width: 7.813rem;
+  height: 3.125rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1.2rem 0.8rem;
+}
