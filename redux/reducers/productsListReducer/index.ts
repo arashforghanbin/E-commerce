@@ -1,7 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface Product {
+  id: string;
+  productName: string;
+  price: number;
+  category: string;
+  file: string;
+  discount: number;
+  clicked: number;
+  bought: number;
+  taste: string;
+  engName: string;
+  weight: number;
+}
+
 interface ProductsList {
-  productsList: object[];
+  productsList: Product[];
 }
 
 const init: ProductsList = {

@@ -1,12 +1,21 @@
+import classNames from "classnames";
 import * as React from "react";
-import { useSwiper } from "swiper/react";
+import SwiperNext from "../../../assets/icons/SwiperNext";
+import SwiperPrev from "../../../assets/icons/swiperPrev";
 
-export const SwiperNextButton = () => {
-  const swiper = useSwiper();
-  return <button onClick={() => swiper.slideNext()}>بعدی</button>;
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant: "next" | "prev";
+}
+const SwiperButton = ({ variant }: Props) => {
+  const swiperButtonClasses = classNames(
+    "bg-green-600 hover:bg-green-700 active:bg-green-500 flex justify-center items-center w-11 h-11 rounded-full"
+  );
+
+  return (
+    <button className={swiperButtonClasses}>
+      {variant === "next" ? <SwiperNext /> : <SwiperPrev />}
+    </button>
+  );
 };
 
-export const SwiperPrevButton = () => {
-  const swiper = useSwiper();
-  return <button onClick={() => swiper.slidePrev()}>قبلی</button>;
-};
+export default SwiperButton;
