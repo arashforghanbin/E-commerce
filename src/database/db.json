@@ -750,5 +750,67 @@
       "weight": 14,
       "hasDiscount": false
     }
+  ],
+  "productCategories": [
+    {
+      "id": 1,
+      "value": "toffeeAndChocolate",
+      "description": "شکلات و تافی",
+      "img": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 2,
+      "value": "chipsAndCrackers",
+      "description": "چیپس و چوب شور و کراکر",
+      "img": "https://images.unsplash.com/photo-1615294209152-571969a7fbfe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+    },
+    {
+      "id": 3,
+      "value": "cereal",
+      "description": "کورنفلکس و غلات",
+      "img": "https://images.unsplash.com/photo-1521483451569-e33803c0330c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1085&q=80"
+    },
+    {
+      "id": 4,
+      "value": "jillyBeans",
+      "description": "دراژه و جیلی بینز",
+      "img": "https://images.unsplash.com/photo-1581798269145-7512508289b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=852&q=80"
+    },
+    {
+      "id": 5,
+      "value": "cakesAndCookies",
+      "description": "بیسکوئیت و ویفر و کیک",
+      "img": "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 6,
+      "value": "chocolate",
+      "description": "شکلات و کره صبحانه",
+      "img": "https://images.unsplash.com/photo-1599239053239-8d1c93749938?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1112&q=80"
+    },
+    {
+      "id": 7,
+      "value": "gum",
+      "description": "آدامس و خوشبوکننده",
+      "img": "https://images.unsplash.com/photo-1630025631629-dfbf6049f85e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80"
+    },
+    {
+      "id": 8,
+      "value": "marshmellowAndJelly",
+      "description": "پاستیل و مارشمالو",
+      "img": "https://images.unsplash.com/photo-1576712967455-c8d22580e9be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 9,
+      "value": "lollipop",
+      "description": "آبنبات و آبنبات چوبی",
+      "img": "https://images.unsplash.com/photo-1588756264692-d396bca41fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": 10,
+      "value": "drinks",
+      "description": "نوشیدنی سرد و گرم",
+      "img": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1257&q=80"
+    }
   ]
 }

@@ -3,6 +3,7 @@ import * as React from "react";
 const Logo = () => {
   return (
     <svg
+      className="cursor-pointer hover:animate-wiggle"
       width="171"
       height="129"
       viewBox="0 0 171 90"

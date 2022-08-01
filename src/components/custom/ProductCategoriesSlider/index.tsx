@@ -3,59 +3,44 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { add } from "../../../../redux/reducers/productsListReducer";
-import { textTruncate, discountCalc } from "../../../utils";
+import { add } from "../../../../redux/reducers/productCategoriesReducer";
 import { RootState } from "../../../../redux/store";
-import SmallCard from "../SmallCard/smallCard";
+import CategoryCard from "../CategoryCard";
 import SwiperNext from "../../../assets/icons/SwiperNext";
 import SwiperPrev from "../../../assets/icons/SwiperPrev";
 import classNames from "classnames";
-const URL = "http://localhost:3004/productsList";
+const URL = "http://localhost:3004/productCategories";
 
-interface Product {
-  bought: number;
-  category: string;
-  clicked: number;
-  discount: number;
-  engName: string;
-  file: string;
-  id: string;
-  madeIn: string;
-  price: number;
-  productName: string;
-  taste: string;
-  weight: number;
-  hasDiscount: boolean;
+interface ProductCategory {
+  id: number;
+  value: string;
+  description: string;
+  img: string;
 }
 
-const FavProductSlider = () => {
+const ProductCategoriesSlider = () => {
   const [controlledSwiper, setControlledSwiper] = React.useState<any | null>(
     null
   );
   const dispatch = useDispatch();
 
-  const handleGetData = async () => {
-    const data: AxiosResponse = await axios.get<Product[]>(URL);
+  const handleGetCategories = async () => {
+    const data: AxiosResponse = await axios.get<ProductCategory[]>(URL);
     dispatch(add(data.data));
   };
 
   // getting the products List
-  const dataList: Product[] | undefined | any = useSelector(
-    (state: RootState) => state.productsList.productsList[0]
+  const categoriesList: ProductCategory[] | undefined | any = useSelector(
+    (state: RootState) => state.productCategories.Categories[0]
   );
-  let copiedProductsList: Product[] = [];
-  if (dataList !== undefined) {
-    copiedProductsList = [...dataList];
-  }
-
-  // sorting by favorite
-  const sortedByFavorite = copiedProductsList?.sort(
-    (a: Product, b: Product) => b.bought - a.bought
-  );
-  const tenMostFavorite = sortedByFavorite.slice(0, 10);
+  console.log(categoriesList);
+  // let copiedProductsList: ProductCategory[] = [];
+  // if (dataList !== undefined) {
+  //   copiedProductsList = [...dataList];
+  // }
 
   React.useEffect(() => {
-    handleGetData();
+    handleGetCategories();
   }, []);
 
   const handlePrevSlide = () => {
@@ -77,7 +62,7 @@ const FavProductSlider = () => {
             className={swiperButtonClasses}
             onClick={() => handlePrevSlide()}
           >
-            <SwiperPrev/>
+            <SwiperPrev />
           </button>
           <button
             className={swiperButtonClasses}
@@ -99,22 +84,14 @@ const FavProductSlider = () => {
           className="mySwiper"
           modules={[Controller]}
         >
-          {tenMostFavorite &&
-            tenMostFavorite.map((product) => {
+          {categoriesList &&
+            categoriesList.map((category: any) => {
               return (
-                <SwiperSlide key={product.id}>
-                  <SmallCard
-                    productName={textTruncate(product.productName, 21)}
-                    imgLink={product.file}
-                    imgAlt={product.engName}
-                    initialPrice={product.price}
-                    hasDiscount={product.hasDiscount}
-                    discountAmount={product.discount}
-                    discountPrice={discountCalc(
-                      true,
-                      product.discount,
-                      product.price
-                    )}
+                <SwiperSlide key={category.id}>
+                  <CategoryCard
+                    description={category.description}
+                    value={category.value}
+                    img={category.img}
                   />
                 </SwiperSlide>
               );
@@ -125,4 +102,4 @@ const FavProductSlider = () => {
   );
 };
 
-export default FavProductSlider;
+export default ProductCategoriesSlider;

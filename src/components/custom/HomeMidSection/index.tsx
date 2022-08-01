@@ -26,9 +26,9 @@ const HomeMidSection = () => {
           x2="0.999991"
           y2="205"
           stroke="#E77572"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-dasharray="4 7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray="4 7"
         />
       </svg>
       <div className="flex flex-col justify-center items-center">
@@ -49,9 +49,9 @@ const HomeMidSection = () => {
           x2="0.999991"
           y2="205"
           stroke="#E77572"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-dasharray="4 7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray="4 7"
         />
       </svg>
       <div className="flex flex-col justify-center items-center">

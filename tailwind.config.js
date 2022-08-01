@@ -9,6 +9,7 @@ module.exports = {
       animation: {
         spinOnce: "spinOnce 0.3s linear",
         slideDown: "slideDown 0.5s linear",
+        wiggle: "wiggle 1s linear",
       },
       keyframes: {
         spinOnce: {
@@ -25,6 +26,23 @@ module.exports = {
           },
           "100%": {
             transform: "translateY(300px)",
+          },
+        },
+        wiggle: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "25%": {
+            transform: "rotate(10deg)",
+          },
+          "50%": {
+            transform: "rotate(0deg)",
+          },
+          "75%": {
+            transform: "rotate(10deg)",
+          },
+          "100%": {
+            transform: "rotate(0deg)",
           },
         },
       },

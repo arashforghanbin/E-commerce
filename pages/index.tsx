@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import HeroSection from "../src/components/custom/HeroSection";
 import FavProductSlider from "../src/components/custom/FavProductSlider";
 import HomeMidSection from "../src/components/custom/HomeMidSection";
+import ProductCategoriesSlider from "../src/components/custom/ProductCategoriesSlider";
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
           <HeroSection />
           <FavProductSlider />
           <HomeMidSection/>
+          <ProductCategoriesSlider/>
           <NewsLetter />
         </main>
       </Layout>

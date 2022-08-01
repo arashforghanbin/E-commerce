@@ -1,6 +1,7 @@
 const SwiperNext = () => {
   return (
     <svg
+      className="translate-x-[-2px]"
       width="28"
       height="28"
       viewBox="0 0 28 28"
