@@ -39,3 +39,14 @@
   background-position: center;
   padding: 1.2rem 0.8rem;
 }
+
+@media (max-width: 639.55px) {
+  .hero-title {
+    background-image: url("../assets/imgs/rectfav.png");
+    width: 7.813rem;
+    height: 3.125rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 4rem 0.8rem;
+  }
+}

@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Layout from "../src/components/Layout";
 import Head from "next/head";
 import NewsLetter from "../src/components/custom/NewsLetter";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -19,11 +18,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <main className="container mx-auto flex flex-col flex-grow relative">
+        <main className="container px-10 mx-auto flex flex-col flex-grow relative">
           <HeroSection />
           <FavProductSlider />
-          <HomeMidSection/>
-          <ProductCategoriesSlider/>
+          <HomeMidSection />
+          <ProductCategoriesSlider />
           <NewsLetter />
         </main>
       </Layout>

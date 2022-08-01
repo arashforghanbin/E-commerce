@@ -77,7 +77,7 @@ const FavProductSlider = () => {
             className={swiperButtonClasses}
             onClick={() => handlePrevSlide()}
           >
-            <SwiperPrev/>
+            <SwiperPrev />
           </button>
           <button
             className={swiperButtonClasses}
@@ -94,10 +94,32 @@ const FavProductSlider = () => {
       <div className="mb-28 bg-red-600 rounded-xl shadow-lg  shadow-red-400 p-4">
         <Swiper
           onSwiper={setControlledSwiper}
-          slidesPerView={5.5}
+          slidesPerView={1.5}
           spaceBetween={0}
           className="mySwiper"
           modules={[Controller]}
+          breakpoints={{
+            1536: {
+              slidesPerView: 5.2,
+              spaceBetween: 0,
+            },
+            1280: {
+              slidesPerView: 4.2,
+              spaceBetween: 0,
+            },
+            1024: {
+              slidesPerView: 3.2,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 2.3,
+              spaceBetween: 0,
+            },
+            640: {
+              slidesPerView: 1.9,
+              spaceBetween: 0,
+            },
+          }}
         >
           {tenMostFavorite &&
             tenMostFavorite.map((product) => {

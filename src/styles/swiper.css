@@ -3,17 +3,17 @@
   width: 1rem !important;
   height: 1rem !important;
   margin-bottom: 1rem;
-  transform: translate(50%, 150%);
+  overflow: visible !important;
+  transform: translate(50%, 200%);
 }
 
 :root {
   --swiper-theme-color: #dc3a35 !important;
 }
 
-.swiper-wrapper {
-  width: 50% !important;
+/* .swiper-wrapper {
   overflow: visible !important;
-}
+} */
 
 .hero-slides {
   display: flex;

@@ -12,11 +12,11 @@ import WhatsApp from "../../../assets/icons/WhatsApp";
 
 const Footer = () => {
   return (
-    <footer className="flex bg-red-400 h-[25rem]">
-      <div className="flex items-center container mx-auto">
+    <footer className="flex  bg-red-400 py-16 lg:py-0 lg:h-[25rem] px-8">
+      <div className="flex items-center flex-wrap  justify-center container gap-12 mx-auto">
         <div className="flex flex-col gap-4">
           <div>
-            <h4 className="text-[1.75rem] mb-2 font-bold">
+            <h4 className="text-[1.75rem] mb-2 font-bold ">
               ما همیشه کنارتون هستیم!
             </h4>
             <p className="opacity-50">
