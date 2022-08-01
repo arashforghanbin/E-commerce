@@ -12,7 +12,8 @@
       "madeIn": "آلمان",
       "taste": "نوشابه‌ای",
       "engName": "HARIBO MAOAM BLOXX",
-      "weight": 0
+      "weight": 0,
+      "hasDiscount": true
     },
     {
       "id": "rF_pu-o",
@@ -26,7 +27,8 @@
       "madeIn": "آلمان",
       "taste": "ماست و توت فرنگی",
       "engName": "CORNY Yogurt & STRAWBERRY",
-      "weight": 25
+      "weight": 25,
+      "hasDiscount": false
     },
     {
       "id": "aKS1FOy",
@@ -40,7 +42,8 @@
       "madeIn": "آلمان",
       "taste": "طعم شکلات سفید",
       "engName": "CORNY WHITE CHOCOLATE  ",
-      "weight": 20
+      "weight": 20,
+      "hasDiscount": false
     },
     {
       "id": "HJtdLKY",
@@ -54,7 +57,8 @@
       "madeIn": "آمریکا",
       "taste": "بیسکوییتی",
       "engName": "  MILKA CREAM AND BISCUITE",
-      "weight": 100
+      "weight": 100,
+      "hasDiscount": true
     },
     {
       "id": "Z6WICw7",
@@ -68,7 +72,8 @@
       "madeIn": "آلمان",
       "taste": "پرتقالی",
       "engName": "HARIBO MAOAM BLOXX",
-      "weight": 20
+      "weight": 20,
+      "hasDiscount": false
     },
     {
       "id": "wsJB_3m",
@@ -82,7 +87,8 @@
       "madeIn": "آمریکا",
       "taste": "آلبالو ترش",
       "engName": "sour cherry chocolate chips",
-      "weight": 300
+      "weight": 300,
+      "hasDiscount": false
     },
     {
       "id": "qVMEwUK",
@@ -96,7 +102,8 @@
       "madeIn": "آمریکا",
       "taste": "اورجینال",
       "engName": "PRINGLES ORIGINAL POTATO CRISPS 165G",
-      "weight": 165
+      "weight": 165,
+      "hasDiscount": true
     },
     {
       "id": "SsLyff5",
@@ -110,7 +117,8 @@
       "madeIn": "اکراین",
       "taste": "شکلات شیری",
       "engName": "CRACKER SANDWICH CHOCO",
-      "weight": 235
+      "weight": 235,
+      "hasDiscount": false
     },
     {
       "id": "6TExYIK",
@@ -124,7 +132,8 @@
       "madeIn": "اتریش",
       "taste": "ساده",
       "engName": "SNACKLINE SALTSTICKS 200 G",
-      "weight": 200
+      "weight": 200,
+      "hasDiscount": true
     },
     {
       "id": "7IdUaai",
@@ -138,7 +147,8 @@
       "madeIn": "آمریکا",
       "taste": "تند و آتیشین",
       "engName": "PRINGLES HOT & SPICY POTATO CRISPS 165G",
-      "weight": 165
+      "weight": 165,
+      "hasDiscount": false
     },
     {
       "id": "Z5cPbTE",
@@ -152,7 +162,8 @@
       "madeIn": "آلمان",
       "taste": "شکلاتی",
       "engName": "KELLOGG'S COCO POPS MOONS AND STAR",
-      "weight": 360
+      "weight": 360,
+      "hasDiscount": false
     },
     {
       "id": "Y5ktcQu",
@@ -166,7 +177,8 @@
       "madeIn": "روسیه",
       "taste": "اورجینال",
       "engName": "NESTLE GOLD SNOWFLAKES",
-      "weight": 300
+      "weight": 300,
+      "hasDiscount": true
     },
     {
       "id": "DmORUM8",
@@ -180,7 +192,8 @@
       "madeIn": "روسیه",
       "taste": "شکلاتی",
       "engName": "NESQUIK CORNFLAKES ",
-      "weight": 450
+      "weight": 450,
+      "hasDiscount": false
     },
     {
       "id": "GZrBbFO",
@@ -194,7 +207,8 @@
       "madeIn": "آلمان",
       "taste": "ماست",
       "engName": "  CORNY YOUGART ",
-      "weight": 120
+      "weight": 120,
+      "hasDiscount": false
     },
     {
       "id": "ItDBgUi",
@@ -208,7 +222,8 @@
       "madeIn": "آلمان",
       "taste": "عسلی",
       "engName": "Kellogg`s crunchy nut",
-      "weight": 330
+      "weight": 330,
+      "hasDiscount": false
     },
     {
       "id": "psrvUp8",
@@ -222,7 +237,8 @@
       "madeIn": "آمریکا",
       "taste": "میوه ای",
       "engName": "SKITTLES PURPLE ",
-      "weight": 70
+      "weight": 70,
+      "hasDiscount": false
     },
     {
       "id": "pBc5Iey",
@@ -236,7 +252,8 @@
       "madeIn": "آمریکا",
       "taste": "شکلاتی",
       "engName": "m&m",
-      "weight": 80
+      "weight": 80,
+      "hasDiscount": false
     },
     {
       "id": "Z6m6Y9b",
@@ -250,7 +267,8 @@
       "madeIn": "ترکیه",
       "taste": "میوه",
       "engName": "Bebeto fruit mix beans",
-      "weight": 36
+      "weight": 36,
+      "hasDiscount": false
     },
     {
       "id": "Q4zwJN1",
@@ -264,7 +282,8 @@
       "madeIn": "ترکیه",
       "taste": "میکس استوایی",
       "engName": "Bebeto Tropic mix cool beans",
-      "weight": 60
+      "weight": 60,
+      "hasDiscount": false
     },
     {
       "id": "jc6D25X",
@@ -278,7 +297,8 @@
       "madeIn": "ترکیه",
       "taste": "میوه ای",
       "engName": "SKITTLES RED ",
-      "weight": 70
+      "weight": 70,
+      "hasDiscount": true
     },
     {
       "id": "gcfe14S",
@@ -292,7 +312,8 @@
       "madeIn": "ترکیه",
       "taste": "فندقی",
       "engName": "ULKER WEAFER HAZELNUTS",
-      "weight": 42
+      "weight": 42,
+      "hasDiscount": true
     },
     {
       "id": "JCkUPHe",
@@ -306,7 +327,8 @@
       "madeIn": "ترکیه",
       "taste": "شکلات شیری و کرم شکلات",
       "engName": "SOLEN LAMANT WAFERS",
-      "weight": 40
+      "weight": 40,
+      "hasDiscount": false
     },
     {
       "id": "b1kTfid",
@@ -320,7 +342,8 @@
       "madeIn": "ترکیه",
       "taste": "شکلات سفید و کرم شکلات",
       "engName": "SOLEN ALWAYSE WAFERS",
-      "weight": 40
+      "weight": 40,
+      "hasDiscount": false
     },
     {
       "id": "iqitc7J",
@@ -334,7 +357,8 @@
       "madeIn": "ترکیه",
       "taste": "شیری",
       "engName": "  BISCOLATA BREAK MILK",
-      "weight": 20
+      "weight": 20,
+      "hasDiscount": false
     },
     {
       "id": "TYY3yuM",
@@ -348,7 +372,8 @@
       "madeIn": "ایتالیا",
       "taste": "شکلاتی",
       "engName": "  MATILDE VICENZI GRISBI CHOCOLATE CREAM",
-      "weight": 150
+      "weight": 150,
+      "hasDiscount": false
     },
     {
       "id": "fDUOo0G",
@@ -362,7 +387,8 @@
       "madeIn": "ترکیه",
       "taste": "شکلات شیری و فندق",
       "engName": "FERRERO NUTELLA HAZELNUT SPREAD",
-      "weight": 630
+      "weight": 630,
+      "hasDiscount": false
     },
     {
       "id": "vvlcq9o",
@@ -376,7 +402,8 @@
       "madeIn": "بلژیک",
       "taste": "کرانچ",
       "engName": "LOTUS BISCOFF CRUNCHY",
-      "weight": 400
+      "weight": 400,
+      "hasDiscount": false
     },
     {
       "id": "aUnswwP",
@@ -390,7 +417,8 @@
       "madeIn": "آمریکا",
       "taste": "بادام زمینی",
       "engName": "CREAMY PEANUT BUTTER",
-      "weight": 454
+      "weight": 454,
+      "hasDiscount": false
     },
     {
       "id": "f86l3Dx",
@@ -404,7 +432,8 @@
       "madeIn": "ترکیه",
       "taste": "شکلاتی",
       "engName": "Sarelle bitter Spread",
-      "weight": 350
+      "weight": 350,
+      "hasDiscount": false
     },
     {
       "id": "7NkVKYt",
@@ -418,7 +447,8 @@
       "madeIn": "انگلستان",
       "taste": "کرانچ",
       "engName": "MILK CHOCOLATE CRUNCHIE SPREAD",
-      "weight": 400
+      "weight": 400,
+      "hasDiscount": false
     },
     {
       "id": "ugxYMOD",
@@ -432,7 +462,8 @@
       "madeIn": "ترکیه",
       "taste": "نعنا یخ",
       "engName": "VIVIDENT GUM",
-      "weight": 26
+      "weight": 26,
+      "hasDiscount": false
     },
     {
       "id": "x6Cmu0P",
@@ -446,7 +477,8 @@
       "madeIn": "آمریکا",
       "taste": "هندوانه و سیب و نارنگی",
       "engName": "ICE BREAKERS SOURS WATERMELON & GREEN APPLE & TANGERINE",
-      "weight": 42
+      "weight": 42,
+      "hasDiscount": true
     },
     {
       "id": "oYWiqu3",
@@ -460,7 +492,8 @@
       "madeIn": "هلند",
       "taste": "بلوبری",
       "engName": "MENTOS PURE FRESH ",
-      "weight": 15
+      "weight": 15,
+      "hasDiscount": false
     },
     {
       "id": "JZH1LFn",
@@ -474,7 +507,8 @@
       "madeIn": "اسپانیا",
       "taste": "توت فرنگی",
       "engName": "chupa chups babol strawberry flavour",
-      "weight": 21
+      "weight": 21,
+      "hasDiscount": true
     },
     {
       "id": "3H5zRad",
@@ -488,7 +522,8 @@
       "madeIn": "آلمان",
       "taste": "هندوانه تمشک توت فرنگی",
       "engName": "HUBBA BUBBA MEGA LAND",
-      "weight": 56
+      "weight": 56,
+      "hasDiscount": false
     },
     {
       "id": "ZFTaD5F",
@@ -502,7 +537,8 @@
       "madeIn": "ترکیه",
       "taste": "پرتقال",
       "engName": "BEBET SOUR WORMS GUMMY CANDY",
-      "weight": 60
+      "weight": 60,
+      "hasDiscount": false
     },
     {
       "id": "aPn3KbW",
@@ -516,7 +552,8 @@
       "madeIn": "ترکیه",
       "taste": "توت فرنگی",
       "engName": "BEBET WACKY STICKS",
-      "weight": 180
+      "weight": 180,
+      "hasDiscount": false
     },
     {
       "id": "QiYRZAg",
@@ -530,7 +567,8 @@
       "madeIn": "آلمان",
       "taste": "نوشابه ای",
       "engName": "HARIBO HAPPY COLA ",
-      "weight": 175
+      "weight": 175,
+      "hasDiscount": false
     },
     {
       "id": "zBFxP0h",
@@ -544,7 +582,8 @@
       "madeIn": "ترکیه",
       "taste": "میوه",
       "engName": "BEBET TUBES MARSHMALLOW",
-      "weight": 275
+      "weight": 275,
+      "hasDiscount": false
     },
     {
       "id": "5fQOnet",
@@ -558,7 +597,8 @@
       "madeIn": "ترکیه",
       "taste": "میوه ای",
       "engName": "STORCK LACH GUMMI ",
-      "weight": 250
+      "weight": 250,
+      "hasDiscount": false
     },
     {
       "id": "ocDj_pu",
@@ -572,7 +612,8 @@
       "madeIn": "اکراین",
       "taste": "ماست و توت فرنگی",
       "engName": "ROSHEN LOLLIPOP YOGHURT AND STRAWBERRY",
-      "weight": 10
+      "weight": 10,
+      "hasDiscount": false
     },
     {
       "id": "SUvnaDW",
@@ -586,7 +627,8 @@
       "madeIn": "اندونزی",
       "taste": "قهوه",
       "engName": "KOPIKO COFFE CANDY ",
-      "weight": 40
+      "weight": 40,
+      "hasDiscount": false
     },
     {
       "id": "zHhjyyQ",
@@ -600,7 +642,8 @@
       "madeIn": "آلمان",
       "taste": "زنجبیلی",
       "engName": "250",
-      "weight": 250
+      "weight": 250,
+      "hasDiscount": false
     },
     {
       "id": "Dasn3a6",
@@ -614,7 +657,8 @@
       "madeIn": "ایران",
       "taste": "نعنایی",
       "engName": "Heart Shaped Candy",
-      "weight": 80
+      "weight": 80,
+      "hasDiscount": false
     },
     {
       "id": "Z1IpV81",
@@ -628,7 +672,8 @@
       "madeIn": " ایران",
       "taste": "توت فرنگی و پرتقال",
       "engName": "big round candy",
-      "weight": 100
+      "weight": 100,
+      "hasDiscount": false
     },
     {
       "id": "TJ_ZJK9",
@@ -642,7 +687,8 @@
       "madeIn": "آلمان",
       "taste": "کارامل",
       "engName": "JACOBS CARAMEL",
-      "weight": 95
+      "weight": 95,
+      "hasDiscount": true
     },
     {
       "id": "KfPmlK1",
@@ -656,7 +702,8 @@
       "madeIn": "روسیه",
       "taste": "شکلاتی",
       "engName": "NESTELE COFFEE MATE CHOCOLATE CREAM FREE GUTEN",
-      "weight": 425
+      "weight": 425,
+      "hasDiscount": false
     },
     {
       "id": "XONPMu-",
@@ -670,7 +717,8 @@
       "madeIn": "ترکیه",
       "taste": "تلخ",
       "engName": "Mehmet Efendi Classic Coffee",
-      "weight": 250
+      "weight": 250,
+      "hasDiscount": false
     },
     {
       "id": "U8fWNST",
@@ -684,7 +732,8 @@
       "madeIn": "ترکیه",
       "taste": "شکلاتی",
       "engName": "NESTLE classic sutlu sicak cikolata tadiyla",
-      "weight": 18
+      "weight": 18,
+      "hasDiscount": false
     },
     {
       "id": "BAGnKba",
@@ -698,7 +747,8 @@
       "madeIn": "اندونزی",
       "taste": "کاپوچینو",
       "engName": "STARBUCKS CAPPUCCINO",
-      "weight": 14
+      "weight": 14,
+      "hasDiscount": false
     }
   ]
 }

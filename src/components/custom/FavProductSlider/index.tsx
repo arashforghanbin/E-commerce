@@ -1,26 +1,32 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Controller } from "swiper";
+import { Controller, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { add } from "../../../../redux/reducers/productsListReducer";
+import { textTruncate, discountCalc } from "../../../utils";
 import { RootState } from "../../../../redux/store";
 import SmallCard from "../SmallCard/smallCard";
 import SwiperButton from "../SwiperButton";
+import SwiperNext from "../../../assets/icons/SwiperNext";
+import SwiperPrev from "../../../assets/icons/SwiperPrev";
+import classNames from "classnames";
 const URL = "http://localhost:3004/productsList";
 
 interface Product {
-  id: string;
-  productName: string;
-  price: number;
-  category: string;
-  file: string;
-  discount: number;
-  clicked: number;
   bought: number;
-  taste: string;
+  category: string;
+  clicked: number;
+  discount: number;
   engName: string;
+  file: string;
+  id: string;
+  madeIn: string;
+  price: number;
+  productName: string;
+  taste: string;
   weight: number;
+  hasDiscount: boolean;
 }
 
 const FavProductSlider = () => {
@@ -30,22 +36,25 @@ const FavProductSlider = () => {
   const dispatch = useDispatch();
 
   const handleGetData = async () => {
-    const { data } = await axios.get(URL);
-    dispatch(add(data));
+    const data: AxiosResponse = await axios.get<Product[]>(URL);
+    dispatch(add(data.data));
   };
 
   // getting the products List
-  const dataList = useSelector(
+  const dataList: Product[] | undefined | any = useSelector(
     (state: RootState) => state.productsList.productsList[0]
   );
-  console.log(dataList);
-  const copiedProductsList: {} = { ...dataList };
-  console.log(copiedProductsList);
+  let copiedProductsList: Product[] = [];
+  if (dataList !== undefined) {
+    copiedProductsList = [...dataList];
+  }
 
   // sorting by favorite
-  // const sortedByFavorite = CopiedProductsList.sort(
-  //   (a: Product, b: Product) => b.bought - a.bought
-  // );
+  const sortedByFavorite = copiedProductsList?.sort(
+    (a: Product, b: Product) => b.bought - a.bought
+  );
+  const tenMostFavorite = sortedByFavorite.slice(0, 10);
+  console.log(tenMostFavorite);
 
   React.useEffect(() => {
     handleGetData();
@@ -58,14 +67,26 @@ const FavProductSlider = () => {
     controlledSwiper.slideNext();
   };
 
+  const swiperButtonClasses = classNames(
+    "bg-green-600 hover:bg-green-700 active:bg-green-500 flex justify-center items-center w-11 h-11 rounded-full"
+  );
+
   return (
     <section className="flex flex-col gap-8">
       <div className="flex items-center">
         <div className="flex gap-2">
-          <SwiperButton variant="prev" onClick={() => handlePrevSlide()} />
-          <SwiperButton variant="next" onClick={() => handleNextSlide()}>
-            بعدی
-          </SwiperButton>
+          <button
+            className={swiperButtonClasses}
+            onClick={() => handlePrevSlide()}
+          >
+            <SwiperPrev />
+          </button>
+          <button
+            className={swiperButtonClasses}
+            onClick={() => handleNextSlide()}
+          >
+            <SwiperNext />
+          </button>
         </div>
         <h3 className="text-red-600 text-xl font-bold mx-auto">
           <span className="ml-1 text-yellow-300 favorite">محبوب ترین </span>
@@ -80,17 +101,26 @@ const FavProductSlider = () => {
           className="mySwiper"
           modules={[Controller]}
         >
-          <SwiperSlide>
-            <SmallCard
-              productName="اسمارتیز خوشمزه"
-              imgLink="https://abnabat-choobi.com/api/ui/image/watermark?path=/uploads/product/r65_3.jpg&etype=product"
-              imgAlt="NESTELE COFFEE MATE CHOCOLATE CREAM FREE GUTEN"
-              initialPrice={10000}
-              hasDiscount
-              discountAmount={20}
-              discountPrice={1000}
-            />
-          </SwiperSlide>
+          {tenMostFavorite &&
+            tenMostFavorite.map((product) => {
+              return (
+                <SwiperSlide key={product.id}>
+                  <SmallCard
+                    productName={textTruncate(product.productName, 21)}
+                    imgLink={product.file}
+                    imgAlt={product.engName}
+                    initialPrice={product.price}
+                    hasDiscount={product.hasDiscount}
+                    discountAmount={product.discount}
+                    discountPrice={discountCalc(
+                      true,
+                      product.discount,
+                      product.price
+                    )}
+                  />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
     </section>

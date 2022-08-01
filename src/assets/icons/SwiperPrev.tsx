@@ -1,4 +1,4 @@
- const swiperPrev = () => {
+ const SwiperPrev = () => {
   return (
     <svg
       width="28"
@@ -15,6 +15,6 @@
   );
 };
 
-export default swiperPrev;
+export default SwiperPrev;
 
 

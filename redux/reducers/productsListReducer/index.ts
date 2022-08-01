@@ -12,6 +12,7 @@ interface Product {
   taste: string;
   engName: string;
   weight: number;
+  hasDiscount: boolean;
 }
 
 interface ProductsList {

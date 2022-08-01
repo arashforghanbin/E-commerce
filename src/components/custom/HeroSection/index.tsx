@@ -7,8 +7,8 @@ import "swiper/css/navigation";
 import Button from "../Button";
 import Image from "next/image";
 import hero1 from "../../../assets/imgs/Main-imgs.png";
-import hero2 from "../../../assets/imgs/Main-imgs.png";
-import hero3 from "../../../assets/imgs/Main-imgs.png";
+import hero2 from "../../../assets/imgs/hero2.png";
+import hero3 from "../../../assets/imgs/hero3.png";
 
 const HeroSection = () => {
   return (

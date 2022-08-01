@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import HeroSection from "../src/components/custom/HeroSection";
 import FavProductSlider from "../src/components/custom/FavProductSlider";
+import HomeMidSection from "../src/components/custom/HomeMidSection";
 
 const Home: NextPage = () => {
   return (
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
         <main className="container mx-auto flex flex-col flex-grow relative">
           <HeroSection />
           <FavProductSlider />
+          <HomeMidSection/>
           <NewsLetter />
         </main>
       </Layout>

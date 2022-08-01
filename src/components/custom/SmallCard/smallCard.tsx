@@ -1,11 +1,10 @@
 import * as React from "react";
-import sampleImg from "../../../assets/imgs/products/mandm.jpg";
 import Image from "next/image";
 import Star from "../../../assets/icons/Star";
 import classNames from "classnames";
 
 interface Props {
-  hasDiscount?: true;
+  hasDiscount?: boolean;
   productName: string;
   initialPrice: number;
   imgLink: string;
@@ -35,15 +34,18 @@ const SmallCard = ({
   );
 
   const intitalPriceClasses = classNames(
-    "mb-2",
-    hasDiscount ? "line-through text-gray" : "text-black"
+    hasDiscount ? "line-through text-gray mb-2" : "text-black mb-8"
   );
 
   return (
     <div className="bg-white flex flex-col gap-2 w-64 shadow-md rounded-lg p-2 cursor-pointer h-[18.25rem]">
-      <div className="relative rounded-md overflow-hidden h-44">
+      <div className="relative rounded-md overflow-hidden h-[12rem]">
         <span className=" absolute w-full h-full z-10 bg-gradient-to-tl from-[#dc3b3535]">
-          <span className={discountBadgeClasses}>{discountAmount}%</span>
+          {hasDiscount ? (
+            <span className={discountBadgeClasses}>{discountAmount}%</span>
+          ) : (
+            ""
+          )}
         </span>
         <Image
           className="overflow-hidden hover:scale-150"
@@ -57,7 +59,11 @@ const SmallCard = ({
       <div className="flex justify-between">
         <div>
           <p className={intitalPriceClasses}>{initialPrice}</p>
-          <p className={discountPriceClasses}>{discountPrice}</p>
+          {hasDiscount ? (
+            <p className={discountPriceClasses}>{discountPrice}</p>
+          ) : (
+            ""
+          )}
         </div>
         <div className="flex gap-2 self-end">
           <span className="text-black font-bold">4.5</span>
