@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Layout from "../src/components/Layout";
 import Head from "next/head";
 import NewsLetter from "../src/components/custom/NewsLetter";
 import "swiper/css";
@@ -17,15 +16,13 @@ const Home: NextPage = () => {
         <title>کندی شاپ | صفحه اصلی</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <main className="container px-10 mx-auto flex flex-col flex-grow relative">
-          <HeroSection />
-          <FavProductSlider />
-          <HomeMidSection />
-          <ProductCategoriesSlider />
-          <NewsLetter />
-        </main>
-      </Layout>
+      <main className="container px-10 mx-auto flex flex-col flex-grow relative">
+        <HeroSection />
+        <FavProductSlider />
+        <HomeMidSection />
+        <ProductCategoriesSlider />
+        <NewsLetter />
+      </main>
     </>
   );
 };
