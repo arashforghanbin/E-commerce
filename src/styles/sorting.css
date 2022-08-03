@@ -1,0 +1,11 @@
+.radio-input {
+  display: none;
+}
+
+.radio-input:checked + label {
+  color: #dc3a35;
+}
+
+.radio-input + label {
+  cursor: pointer;
+}

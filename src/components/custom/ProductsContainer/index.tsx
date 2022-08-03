@@ -26,18 +26,54 @@ const ProductsContainer = () => {
   const [loading, setLoading] = React.useState(false);
   const [currentPage, setCurrenPage] = React.useState(1);
   const [productsPerPage] = React.useState(12);
+
   const dataList: Product[] | undefined | any = useSelector(
     (state: RootState) => state.productsList.productsList[0]
   );
+
+  const { chosenOption } = useSelector(
+    (state: RootState) => state.chosenOption
+  );
+
   let copiedProductsList: Product[] = [];
   if (dataList !== undefined) {
     copiedProductsList = [...dataList];
   }
 
+  const [products, setProducts] = React.useState(copiedProductsList);
+
+  React.useEffect(() => {
+    switch (chosenOption) {
+      case "mostSales":
+        setProducts(
+          products.sort((a: Product, b: Product) => b.bought - a.bought)
+        );
+        break;
+      case "mostViewed":
+        setProducts(
+          products.sort((a: Product, b: Product) => b.clicked - a.clicked)
+        );
+        break;
+      case "cheapest":
+        setProducts(
+          products.sort((a: Product, b: Product) => b.price - a.price)
+        );
+        break;
+      case "mostExpensive":
+        setProducts(
+          products.sort((a: Product, b: Product) => a.price - b.price)
+        );
+        break;
+
+      default:
+        break;
+    }
+  }, [chosenOption]);
+
   //GETTING CURRENT POST
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = copiedProductsList.slice(
+  const currentProducts = products.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -49,7 +85,7 @@ const ProductsContainer = () => {
     <>
       <section className="bg-white w-full shadow-md p-4 rounded-[2rem] flex gap-6 flex-wrap justify-center">
         {currentProducts &&
-          currentProducts.map((item) => {
+          currentProducts.map((item: any) => {
             return (
               <MediumCard
                 productName={textTruncate(item.productName, 21)}
@@ -65,7 +101,7 @@ const ProductsContainer = () => {
       </section>
       <Pagination
         postsPerPage={productsPerPage}
-        totalPosts={copiedProductsList.length}
+        totalPosts={products.length}
         paginate={paginate}
       />
     </>
