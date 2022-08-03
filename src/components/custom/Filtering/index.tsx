@@ -48,7 +48,7 @@ const Filterinng = () => {
             onClick={() => toggleCategories()}
             className="flex justify-between items-center cursor-pointer py-4"
           >
-            <h6 className="text-black">دسته بندی</h6>
+            <h6 className="text-black font-bold">دسته بندی</h6>
             {categoriesClicked ? <ArrowDown /> : <ArrowDown reverse />}
           </div>
           <div className="flex flex-col gap-2">
@@ -75,7 +75,7 @@ const Filterinng = () => {
             onClick={() => togglePrice()}
             className="flex justify-between items-center cursor-pointer py-4"
           >
-            <h6 className="text-black">محدوده قیمت</h6>
+            <h6 className="text-black font-bold">محدوده قیمت</h6>
             {priceClicked ? <ArrowDown /> : <ArrowDown reverse />}
           </div>
           {priceClicked ? (

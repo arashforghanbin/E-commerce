@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Filterinng from "../src/components/custom/Filtering";
+import ProductsContainer from "../src/components/custom/ProductsContainer";
 import Sorting from "../src/components/custom/Sorting";
 
 const Products: NextPage = () => {
@@ -7,7 +8,8 @@ const Products: NextPage = () => {
     <main className="container my-12 px-10 mx-auto flex gap-5 relative">
       <Filterinng />
       <div className="flex flex-col gap-5 w-4/5">
-        <Sorting/>
+        <Sorting />
+        <ProductsContainer />
       </div>
     </main>
   );
