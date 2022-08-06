@@ -1,16 +1,14 @@
-import axios, { AxiosResponse } from "axios";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { add } from "../../../../redux/reducers/productsListReducer";
 import { textTruncate, discountCalc } from "../../../utils";
 import { RootState } from "../../../../redux/store";
 import SmallCard from "../SmallCard/smallCard";
 import SwiperNext from "../../../assets/icons/SwiperNext";
 import SwiperPrev from "../../../assets/icons/SwiperPrev";
 import classNames from "classnames";
-const URL = "http://localhost:3004/productsList";
+import { fetchProductsList } from "../../../../redux/reducers/productsListReducer";
 
 interface Product {
   bought: number;
@@ -34,18 +32,18 @@ const FavProductSlider = () => {
   );
   const dispatch = useDispatch();
 
-  const handleGetData = async () => {
-    const data: AxiosResponse = await axios.get<Product[]>(URL);
-    dispatch(add(data.data));
-  };
-
   // getting the products List
-  const dataList: Product[] | undefined | any = useSelector(
-    (state: RootState) => state.productsList.productsList[0]
+  
+  React.useEffect(() => {
+    dispatch(fetchProductsList());
+  }, []);
+
+  const productsList = useSelector(
+    (state: RootState) => state.productsList.productsList
   );
   let copiedProductsList: Product[] = [];
-  if (dataList !== undefined) {
-    copiedProductsList = [...dataList];
+  if (productsList !== undefined) {
+    copiedProductsList = [...productsList];
   }
 
   // sorting by favorite
@@ -53,10 +51,6 @@ const FavProductSlider = () => {
     (a: Product, b: Product) => b.bought - a.bought
   );
   const tenMostFavorite = sortedByFavorite.slice(0, 10);
-
-  React.useEffect(() => {
-    handleGetData();
-  }, []);
 
   const handlePrevSlide = () => {
     controlledSwiper.slidePrev();

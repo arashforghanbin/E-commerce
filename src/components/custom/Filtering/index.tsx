@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../../../../redux/reducers/productCategoriesReducer";
 import { RootState } from "../../../../redux/store";
 import ArrowDown from "../../../assets/icons/ArrowDown";
 
 const Filterinng = () => {
   const [categoriesClicked, setCategoriesClicked] = useState(false);
   const [priceClicked, setPriceClicked] = useState(false);
+
+  const dispatch = useDispatch()
 
   const toggleCategories = () => {
     if (categoriesClicked === true) {
@@ -31,8 +34,12 @@ const Filterinng = () => {
   }
 
   const categoriesList: ProductCategory[] | undefined | any = useSelector(
-    (state: RootState) => state.productCategories.Categories[0]
+    (state: RootState) => state.productCategories.Categories
   );
+
+  useEffect(()=>{
+    dispatch(fetchCategories())
+  },[categoriesList])
 
   return (
     <section className=" w-1/5">

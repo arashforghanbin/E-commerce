@@ -37,7 +37,7 @@
   height: 3.125rem;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 1.2rem 0.8rem;
+  padding: 0.6rem 1.1rem;
 }
 
 @media (max-width: 639.55px) {
@@ -49,4 +49,8 @@
     background-position: center;
     padding: 4rem 0.8rem;
   }
+}
+
+.searchbar {
+  transform-origin: top;
 }

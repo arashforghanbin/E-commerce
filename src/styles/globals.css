@@ -31,3 +31,7 @@ html {
 :root {
   min-height: 100%;
 }
+
+input:focus-visible {
+  outline: none
+}

@@ -1,10 +1,11 @@
-import { current } from "@reduxjs/toolkit";
 import * as React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsList } from "../../../../redux/reducers/productsListReducer";
 import { RootState } from "../../../../redux/store";
-import { discountCalc, textTruncate } from "../../../utils";
+import { discountCalc, textTruncate, underLineToSpace } from "../../../utils";
 import MediumCard from "../MediumCard";
 import Pagination from "../Pagination";
+import { useRouter } from "next/router";
 
 interface Product {
   bought: number;
@@ -23,24 +24,42 @@ interface Product {
 }
 
 const ProductsContainer = () => {
-  const [loading, setLoading] = React.useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const searchedValue = underLineToSpace(router.query.search);
+
+  React.useEffect(() => {
+    dispatch(fetchProductsList());
+  }, []);
+
   const [currentPage, setCurrenPage] = React.useState(1);
   const [productsPerPage] = React.useState(12);
-
-  const dataList: Product[] | undefined | any = useSelector(
-    (state: RootState) => state.productsList.productsList[0]
-  );
 
   const { chosenOption } = useSelector(
     (state: RootState) => state.chosenOption
   );
 
+  const productsList = useSelector(
+    (state: RootState) => state.productsList.productsList
+  );
+
   let copiedProductsList: Product[] = [];
-  if (dataList !== undefined) {
-    copiedProductsList = [...dataList];
+  if (productsList !== undefined || [] || null) {
+    copiedProductsList = [...productsList];
   }
 
   const [products, setProducts] = React.useState(copiedProductsList);
+
+  React.useEffect(() => {
+    if (searchedValue) {
+      const foundSearchedValue = copiedProductsList.filter((items) =>
+        items.productName.includes(searchedValue)
+      );
+      setProducts(foundSearchedValue);
+    } else {
+      setProducts(copiedProductsList);
+    }
+  }, [copiedProductsList, searchedValue]);
 
   React.useEffect(() => {
     switch (chosenOption) {
@@ -68,15 +87,11 @@ const ProductsContainer = () => {
       default:
         break;
     }
-  }, [chosenOption]);
+  }, [chosenOption, products]);
 
   //GETTING CURRENT POST
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
 
   // change page
   const paginate = (pageNumber: number) => setCurrenPage(pageNumber);
@@ -84,20 +99,26 @@ const ProductsContainer = () => {
   return (
     <>
       <section className="bg-white w-full shadow-md p-4 rounded-[2rem] flex gap-6 flex-wrap justify-center">
-        {currentProducts &&
-          currentProducts.map((item: any) => {
-            return (
-              <MediumCard
-                productName={textTruncate(item.productName, 21)}
-                initialPrice={item.price}
-                imgAlt={item.engName}
-                imgLink={item.file}
-                hasDiscount={item.hasDiscount}
-                discountAmount={item.discount}
-                discountPrice={discountCalc(true, item.discount, item.price)}
-              />
-            );
-          })}
+        {products.length > 0 ? (
+          products
+            .slice(indexOfFirstProduct, indexOfLastProduct)
+            .map((item: any) => {
+              return (
+                <MediumCard
+                  key={item.id}
+                  productName={textTruncate(item.productName, 21)}
+                  initialPrice={item.price}
+                  imgAlt={item.engName}
+                  imgLink={item.file}
+                  hasDiscount={item.hasDiscount}
+                  discountAmount={item.discount}
+                  discountPrice={discountCalc(true, item.discount, item.price)}
+                />
+              );
+            })
+        ) : (
+          <p>موردی یافت نشد</p>
+        )}
       </section>
       <Pagination
         postsPerPage={productsPerPage}

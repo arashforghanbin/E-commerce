@@ -3,12 +3,12 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { add } from "../../../../redux/reducers/productCategoriesReducer";
 import { RootState } from "../../../../redux/store";
 import CategoryCard from "../CategoryCard";
 import SwiperNext from "../../../assets/icons/SwiperNext";
 import SwiperPrev from "../../../assets/icons/SwiperPrev";
 import classNames from "classnames";
+import { fetchCategories } from "../../../../redux/reducers/productCategoriesReducer";
 const URL = "http://localhost:3004/productCategories";
 
 interface ProductCategory {
@@ -24,24 +24,14 @@ const ProductCategoriesSlider = () => {
   );
   const dispatch = useDispatch();
 
-  const handleGetCategories = async () => {
-    const data: AxiosResponse = await axios.get<ProductCategory[]>(URL);
-    dispatch(add(data.data));
-  };
+  React.useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
 
   // getting the products List
   const categoriesList: ProductCategory[] | undefined | any = useSelector(
-    (state: RootState) => state.productCategories.Categories[0]
+    (state: RootState) => state.productCategories.Categories
   );
-  console.log(categoriesList);
-  // let copiedProductsList: ProductCategory[] = [];
-  // if (dataList !== undefined) {
-  //   copiedProductsList = [...dataList];
-  // }
-
-  React.useEffect(() => {
-    handleGetCategories();
-  }, []);
 
   const handlePrevSlide = () => {
     controlledSwiper.slidePrev();
@@ -71,8 +61,8 @@ const ProductCategoriesSlider = () => {
             <SwiperNext />
           </button>
         </div>
-        <h3 className="text-red-600 text-xl font-bold mx-auto">
-          <span className="ml-1 text-yellow-300 favorite">محبوب ترین </span>
+        <h3 className="flex justify-center items-center text-red-600 text-xl font-bold mx-auto">
+          <span className="block ml-1 text-yellow-300 favorite">دسته بندی</span>
           محصولات
         </h3>
       </div>

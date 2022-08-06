@@ -8,7 +8,7 @@ import sortReducer from "./sortReducer";
 const combinedReducers = combineReducers({
   productsList: productsListReducer,
   productCategories: productCategoriesReducer,
-  chosenOption : sortReducer
+  chosenOption: sortReducer,
 });
 
 const persistedReducers = persistReducer(
