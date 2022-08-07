@@ -43,6 +43,10 @@ const ProductsContainer = () => {
     (state: RootState) => state.productsList.productsList
   );
 
+  const { chosenCategories } = useSelector(
+    (state: RootState) => state.filterReducer
+  );
+
   let copiedProductsList: Product[] = [];
   if (productsList !== undefined || [] || null) {
     copiedProductsList = [...productsList];
@@ -56,6 +60,9 @@ const ProductsContainer = () => {
         items.productName.includes(searchedValue)
       );
       setProducts(foundSearchedValue);
+    } else if (chosenCategories.length > 0) {
+      const foundCategoriesValue = copiedProductsList.filter((item)=> chosenCategories.includes(item.category))
+      setProducts(foundCategoriesValue)
     } else {
       setProducts(copiedProductsList);
     }

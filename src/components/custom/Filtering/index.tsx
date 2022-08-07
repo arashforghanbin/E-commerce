@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { selectedCategories } from "../../../../redux/reducers/filterReducer";
 import { fetchCategories } from "../../../../redux/reducers/productCategoriesReducer";
 import { RootState } from "../../../../redux/store";
 import ArrowDown from "../../../assets/icons/ArrowDown";
@@ -7,10 +8,28 @@ import ArrowDown from "../../../assets/icons/ArrowDown";
 const Filterinng = () => {
   const [categoriesClicked, setCategoriesClicked] = useState(false);
   const [priceClicked, setPriceClicked] = useState(false);
+  const [checked, setChecked] = useState<string[]>([]);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const toggleCategories = () => {
+  const handleChecked = (value: string) => {
+    const currentIndex = checked.indexOf(value);
+    const newlyChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newlyChecked.push(value);
+    } else {
+      newlyChecked.splice(currentIndex, 1);
+    }
+    setChecked(newlyChecked);
+    
+  };
+
+  useEffect(()=> {
+    dispatch(selectedCategories(checked));
+  },[checked])
+
+  const toggleCategoriesDropDown = () => {
     if (categoriesClicked === true) {
       return setCategoriesClicked(false);
     } else {
@@ -18,7 +37,7 @@ const Filterinng = () => {
     }
   };
 
-  const togglePrice = () => {
+  const togglePriceDropDown = () => {
     if (priceClicked === true) {
       return setPriceClicked(false);
     } else {
@@ -37,9 +56,9 @@ const Filterinng = () => {
     (state: RootState) => state.productCategories.Categories
   );
 
-  useEffect(()=>{
-    dispatch(fetchCategories())
-  },[categoriesList])
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
 
   return (
     <section className=" w-1/5">
@@ -52,7 +71,7 @@ const Filterinng = () => {
         </div>
         <div>
           <div
-            onClick={() => toggleCategories()}
+            onClick={() => toggleCategoriesDropDown()}
             className="flex justify-between items-center cursor-pointer py-4"
           >
             <h6 className="text-black font-bold">دسته بندی</h6>
@@ -61,14 +80,15 @@ const Filterinng = () => {
           <div className="flex flex-col gap-2">
             {categoriesClicked === true
               ? categoriesList &&
-                categoriesList.map((category: any) => {
+                categoriesList.map((category: any, index: number) => {
                   return (
-                    <div className="flex items-center gap-1">
+                    <div key={index} className="flex items-center gap-1">
                       <input
                         type="checkbox"
                         name={category.value}
                         id={category.id}
                         value={category.value}
+                        onChange={() => handleChecked(category.value)}
                       />
                       <label htmlFor={category.id}>
                         {category.description}
@@ -79,7 +99,7 @@ const Filterinng = () => {
               : ""}
           </div>
           <div
-            onClick={() => togglePrice()}
+            onClick={() => togglePriceDropDown()}
             className="flex justify-between items-center cursor-pointer py-4"
           >
             <h6 className="text-black font-bold">محدوده قیمت</h6>
