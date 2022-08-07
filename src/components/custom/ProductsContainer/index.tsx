@@ -117,7 +117,7 @@ const ProductsContainer = () => {
               );
             })
         ) : (
-          <p>موردی یافت نشد</p>
+          <p className="py-4">موردی یافت نشد</p>
         )}
       </section>
       <Pagination
