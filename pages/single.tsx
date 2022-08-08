@@ -94,7 +94,7 @@ const Single: NextPage = () => {
           </section>
         </div>
       </main>
-      <aside className="container px-10 mx-auto flex flex-col flex-grow relative">
+      <aside className="container px-10 mx-auto  ">
         <SimilarProducts />
       </aside>
     </>

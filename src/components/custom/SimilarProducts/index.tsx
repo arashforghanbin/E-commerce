@@ -64,7 +64,7 @@ const SimilarProducts = () => {
   );
 
   return (
-    <section className="flex flex-col gap-8">
+    <section className="flex flex-col gap-2">
       <div className="flex items-center">
         <div className="flex gap-2">
           <button
@@ -81,16 +81,15 @@ const SimilarProducts = () => {
           </button>
         </div>
         <h3 className="text-red-600 text-xl font-bold mx-auto">
-          <span className="ml-1 text-yellow-300 favorite">محبوب ترین </span>
-          محصولات
+          محصولات مشابه
         </h3>
       </div>
-      <div className="mb-28 bg-red-600 rounded-xl shadow-lg  shadow-red-400 p-4">
+      <div className="mb-28 bg-white rounded-xl shadow-lg p-4">
         <Swiper
           onSwiper={setControlledSwiper}
           slidesPerView={1.5}
           spaceBetween={0}
-          className="mySwiper"
+          className="mySwiper flex"
           modules={[Controller]}
           breakpoints={{
             1536: {
