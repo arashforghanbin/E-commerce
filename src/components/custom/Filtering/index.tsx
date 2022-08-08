@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedCategories } from "../../../../redux/reducers/filterReducer";
@@ -22,12 +23,18 @@ const Filterinng = () => {
       newlyChecked.splice(currentIndex, 1);
     }
     setChecked(newlyChecked);
-    
   };
 
+  const router = useRouter()
   useEffect(()=> {
+    if(router.query.category) {
+      handleChecked(router.query.category);
+    }
+  },[])
+
+  useEffect(() => {
     dispatch(selectedCategories(checked));
-  },[checked])
+  }, [checked]);
 
   const toggleCategoriesDropDown = () => {
     if (categoriesClicked === true) {
@@ -60,12 +67,19 @@ const Filterinng = () => {
     dispatch(fetchCategories());
   }, []);
 
+  const handleRemoveFilter = () => {
+    setChecked([]);
+  };
+
   return (
     <section className=" w-1/5">
       <div className="bg-white px-5 py-8 rounded-[2rem] shadow-md flex flex-col gap-8">
         <div className="flex justify-between">
           <p className="text-black ">فیلترها</p>
-          <p className="text-black hover:text-red-600 cursor-pointer">
+          <p
+            onClick={() => handleRemoveFilter()}
+            className="text-black hover:text-red-600 cursor-pointer"
+          >
             حذف همه فیلترها
           </p>
         </div>

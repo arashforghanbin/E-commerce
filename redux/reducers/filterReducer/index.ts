@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 const init: any = {
-  chosenCategories:[],
+  chosenCategories: [],
 };
 
 const filterReducer = createSlice({

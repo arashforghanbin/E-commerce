@@ -8,7 +8,6 @@ import Search from "../../../assets/icons/Search";
 import HamMenu from "../../custom/HamMenu";
 import IconButton from "../../custom/IconButton";
 import { FormEvent, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { spaceToUnderLine } from "../../../utils";
 
@@ -16,7 +15,6 @@ const Navbar = () => {
   const [searchClicked, setSearchClicked] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
-  const dispatch = useDispatch();
   const router = useRouter();
 
   const handleSearchBarPop = () => {

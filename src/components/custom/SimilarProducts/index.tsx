@@ -1,38 +1,56 @@
-import axios, { AxiosResponse } from "axios";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { textTruncate, discountCalc } from "../../../utils";
 import { RootState } from "../../../../redux/store";
-import CategoryCard from "../CategoryCard";
+import SmallCard from "../SmallCard/smallCard";
 import SwiperNext from "../../../assets/icons/SwiperNext";
 import SwiperPrev from "../../../assets/icons/SwiperPrev";
 import classNames from "classnames";
-import { fetchCategories } from "../../../../redux/reducers/productCategoriesReducer";
-import { useRouter } from "next/router";
-const URL = "http://localhost:3004/productCategories";
+import { fetchProductsList } from "../../../../redux/reducers/productsListReducer";
 
-interface ProductCategory {
-  id: number;
-  value: string;
-  description: string;
-  img: string;
+interface Product {
+  bought: number;
+  category: string;
+  clicked: number;
+  discount: number;
+  engName: string;
+  file: string;
+  id: string;
+  madeIn: string;
+  price: number;
+  productName: string;
+  taste: string;
+  weight: number;
+  hasDiscount: boolean;
 }
 
-const ProductCategoriesSlider = () => {
+const SimilarProducts = () => {
   const [controlledSwiper, setControlledSwiper] = React.useState<any | null>(
     null
   );
   const dispatch = useDispatch();
 
+  // getting the products List
+
   React.useEffect(() => {
-    dispatch(fetchCategories());
+    dispatch(fetchProductsList());
   }, []);
 
-  // getting the products List
-  const categoriesList: ProductCategory[] | undefined | any = useSelector(
-    (state: RootState) => state.productCategories.Categories
+  const productsList = useSelector(
+    (state: RootState) => state.productsList.productsList
   );
+  let copiedProductsList: Product[] = [];
+  if (productsList !== undefined) {
+    copiedProductsList = [...productsList];
+  }
+
+  // sorting by favorite
+  const sortedByFavorite = copiedProductsList?.sort(
+    (a: Product, b: Product) => b.bought - a.bought
+  );
+  const tenMostFavorite = sortedByFavorite.slice(0, 10);
 
   const handlePrevSlide = () => {
     controlledSwiper.slidePrev();
@@ -44,12 +62,6 @@ const ProductCategoriesSlider = () => {
   const swiperButtonClasses = classNames(
     "bg-green-600 hover:bg-green-700 active:bg-green-500 flex justify-center items-center w-11 h-11 rounded-full"
   );
-
-  const router = useRouter();
-
-  const handleProductCategory = (value: string) => {
-    router.push(`/products/?category=${value}`);
-  };
 
   return (
     <section className="flex flex-col gap-8">
@@ -68,8 +80,8 @@ const ProductCategoriesSlider = () => {
             <SwiperNext />
           </button>
         </div>
-        <h3 className="flex justify-center items-center text-red-600 text-xl font-bold mx-auto">
-          <span className="block ml-1 text-yellow-300 favorite">دسته بندی</span>
+        <h3 className="text-red-600 text-xl font-bold mx-auto">
+          <span className="ml-1 text-yellow-300 favorite">محبوب ترین </span>
           محصولات
         </h3>
       </div>
@@ -103,15 +115,22 @@ const ProductCategoriesSlider = () => {
             },
           }}
         >
-          {categoriesList &&
-            categoriesList.map((category: any) => {
+          {tenMostFavorite &&
+            tenMostFavorite.map((product) => {
               return (
-                <SwiperSlide key={category.id}>
-                  <CategoryCard
-                    description={category.description}
-                    value={category.value}
-                    img={category.img}
-                    onClick={() => handleProductCategory(category.value)}
+                <SwiperSlide key={product.id}>
+                  <SmallCard
+                    productName={textTruncate(product.productName, 21)}
+                    imgLink={product.file}
+                    imgAlt={product.engName}
+                    initialPrice={product.price}
+                    hasDiscount={product.hasDiscount}
+                    discountAmount={product.discount}
+                    discountPrice={discountCalc(
+                      true,
+                      product.discount,
+                      product.price
+                    )}
                   />
                 </SwiperSlide>
               );
@@ -122,4 +141,4 @@ const ProductCategoriesSlider = () => {
   );
 };
 
-export default ProductCategoriesSlider;
+export default SimilarProducts;
