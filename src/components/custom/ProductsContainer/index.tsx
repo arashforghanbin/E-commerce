@@ -2,10 +2,16 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsList } from "../../../../redux/reducers/productsListReducer";
 import { RootState } from "../../../../redux/store";
-import { discountCalc, textTruncate, underLineToSpace } from "../../../utils";
+import {
+  discountCalc,
+  spaceToUnderLine,
+  textTruncate,
+  underLineToSpace,
+} from "../../../utils";
 import MediumCard from "../MediumCard";
 import Pagination from "../Pagination";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface Product {
   bought: number;
@@ -61,8 +67,10 @@ const ProductsContainer = () => {
       );
       setProducts(foundSearchedValue);
     } else if (chosenCategories.length > 0) {
-      const foundCategoriesValue = copiedProductsList.filter((item)=> chosenCategories.includes(item.category))
-      setProducts(foundCategoriesValue)
+      const foundCategoriesValue = copiedProductsList.filter((item) =>
+        chosenCategories.includes(item.category)
+      );
+      setProducts(foundCategoriesValue);
     } else {
       setProducts(copiedProductsList);
     }
@@ -111,16 +119,24 @@ const ProductsContainer = () => {
             .slice(indexOfFirstProduct, indexOfLastProduct)
             .map((item: any) => {
               return (
-                <MediumCard
+                <Link
                   key={item.id}
-                  productName={textTruncate(item.productName, 21)}
-                  initialPrice={item.price}
-                  imgAlt={item.engName}
-                  imgLink={item.file}
-                  hasDiscount={item.hasDiscount}
-                  discountAmount={item.discount}
-                  discountPrice={discountCalc(true, item.discount, item.price)}
-                />
+                  href={"/product/" + spaceToUnderLine(item.productName)}
+                >
+                  <MediumCard
+                    productName={textTruncate(item.productName, 21)}
+                    initialPrice={item.price}
+                    imgAlt={item.engName}
+                    imgLink={item.file}
+                    hasDiscount={item.hasDiscount}
+                    discountAmount={item.discount}
+                    discountPrice={discountCalc(
+                      true,
+                      item.discount,
+                      item.price
+                    )}
+                  />
+                </Link>
               );
             })
         ) : (

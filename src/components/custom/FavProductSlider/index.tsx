@@ -2,13 +2,15 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { textTruncate, discountCalc } from "../../../utils";
+import { textTruncate, discountCalc, spaceToUnderLine } from "../../../utils";
 import { RootState } from "../../../../redux/store";
 import SmallCard from "../SmallCard/smallCard";
 import SwiperNext from "../../../assets/icons/SwiperNext";
 import SwiperPrev from "../../../assets/icons/SwiperPrev";
 import classNames from "classnames";
 import { fetchProductsList } from "../../../../redux/reducers/productsListReducer";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface Product {
   bought: number;
@@ -31,9 +33,10 @@ const FavProductSlider = () => {
     null
   );
   const dispatch = useDispatch();
+  const router = useRouter();
 
   // getting the products List
-  
+
   React.useEffect(() => {
     dispatch(fetchProductsList());
   }, []);
@@ -119,19 +122,23 @@ const FavProductSlider = () => {
             tenMostFavorite.map((product) => {
               return (
                 <SwiperSlide key={product.id}>
-                  <SmallCard
-                    productName={textTruncate(product.productName, 21)}
-                    imgLink={product.file}
-                    imgAlt={product.engName}
-                    initialPrice={product.price}
-                    hasDiscount={product.hasDiscount}
-                    discountAmount={product.discount}
-                    discountPrice={discountCalc(
-                      true,
-                      product.discount,
-                      product.price
-                    )}
-                  />
+                  <Link
+                    href={"/product/" + spaceToUnderLine(product.productName)}
+                  >
+                    <SmallCard
+                      productName={textTruncate(product.productName, 21)}
+                      imgLink={product.file}
+                      imgAlt={product.engName}
+                      initialPrice={product.price}
+                      hasDiscount={product.hasDiscount}
+                      discountAmount={product.discount}
+                      discountPrice={discountCalc(
+                        true,
+                        product.discount,
+                        product.price
+                      )}
+                    />
+                  </Link>
                 </SwiperSlide>
               );
             })}

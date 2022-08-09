@@ -69,26 +69,30 @@ const Single: NextPage = () => {
             </div>
             <Button variant="primary">افزودن به سبد</Button>
           </div>
-          <section className="w-1/2 bg-white flex flex-col gap-4 rounded-xl shadow-md p-4">
-            <h3 className="text-2xl font-bold text-red-600">توضیحات محصول</h3>
-            <p>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-              ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-              و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای
-              زیادی در شصت و سه درصد گذشته حال و آینده
-            </p>
-            <h3 className="text-2xl font-bold text-red-600">مشخصات</h3>
-            <div className="flex flex-col gap-2">
-              <div className="flex">
-                <p className="w-1/2">ساخت کشور: آلمان</p>
-                <p className="w-1/2">
-                  نام به انگلیسی: shift bekesh engineering
-                </p>
-              </div>
-              <div className="flex">
-                <p className="w-1/2">وزن: 150 گرم</p>
-                <p className="w-1/2">طعم: ترش متمایل به تلخ</p>
+          <section className="w-1/2 h-[22rem] bg-white flex flex-col justify-between rounded-xl shadow-md p-4">
+            <div>
+              <h3 className="text-2xl font-bold text-red-600 mb-2">توضیحات محصول</h3>
+              <p>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
+                نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                کتابهای زیادی در شصت و سه درصد گذشته حال و آینده
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-red-600 mb-2">مشخصات</h3>
+              <div className="flex flex-col gap-2">
+                <div className="flex">
+                  <p className="w-1/2">ساخت کشور: آلمان</p>
+                  <p className="w-1/2">
+                    نام به انگلیسی: shift bekesh engineering
+                  </p>
+                </div>
+                <div className="flex">
+                  <p className="w-1/2">وزن: 150 گرم</p>
+                  <p className="w-1/2">طعم: ترش متمایل به تلخ</p>
+                </div>
               </div>
             </div>
           </section>
