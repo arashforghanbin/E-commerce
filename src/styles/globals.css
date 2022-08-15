@@ -33,5 +33,9 @@ html {
 }
 
 input:focus-visible {
-  outline: none
+  outline: none;
+}
+
+.toastify-class {
+  font-family: "Samim";
 }

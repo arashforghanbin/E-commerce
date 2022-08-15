@@ -32,7 +32,8 @@ interface Product {
 const ProductsContainer = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const searchedValue = underLineToSpace(router.query.search);
+  const searchQuery = router.query.search
+  const searchedValue = underLineToSpace(searchQuery);
 
   React.useEffect(() => {
     dispatch(fetchProductsList());

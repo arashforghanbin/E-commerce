@@ -11,6 +11,13 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { spaceToUnderLine } from "../../../utils";
 import Button from "../../custom/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsModalOpen } from "../../../../redux/reducers/modalReducer";
+import { RootState } from "../../../../redux/store";
+import {
+  handleIsLoggedIn,
+  handleUserLoggedIn,
+} from "../../../../redux/reducers/userLoginReducer";
 
 const Navbar = () => {
   const [searchClicked, setSearchClicked] = useState(false);
@@ -33,6 +40,25 @@ const Navbar = () => {
   const handleCloseSearchbarAndAccount = () => {
     setSearchClicked(false);
     setAccountClicked(false);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleLaunchModal = () => {
+    dispatch(setIsModalOpen(true));
+    setAccountClicked(false);
+  };
+
+  const isUserLoggedIn: boolean = useSelector(
+    (state: RootState) => state.userLoginReducer.isLoggedIn
+  );
+  const userLoggedIn: any = useSelector(
+    (state: RootState) => state.userLoginReducer.userLoggedIn
+  );
+
+  const handleLogOut = () => {
+    dispatch(handleIsLoggedIn(false));
+    dispatch(handleUserLoggedIn({ userName: "", password: "" }));
   };
 
   return (
@@ -105,10 +131,29 @@ const Navbar = () => {
               </IconButton>
               {accountClicked && (
                 <div className="transform-origin-top animate-swing flex flex-col items-center gap-4 absolute w-60 py-4 px-4 rounded-xl z-40 bg-red-600">
-                  <p className="text-white">کاربر ناشناس</p>
-                  <Button variant="secondary" size="sm">
-                    ورود / ثبت نام
-                  </Button>
+                  {isUserLoggedIn ? (
+                    <>
+                      <p className="text-white">{userLoggedIn.userName}</p>
+                      <Button
+                        onClick={() => handleLogOut()}
+                        variant="secondary"
+                        size="sm"
+                      >
+                        خروج
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-white">کاربر ناشناس</p>
+                      <Button
+                        onClick={() => handleLaunchModal()}
+                        variant="secondary"
+                        size="sm"
+                      >
+                        ورود / ثبت نام
+                      </Button>
+                    </>
+                  )}
                 </div>
               )}
             </div>

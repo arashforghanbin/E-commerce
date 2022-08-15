@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { ButtonHTMLAttributes, ReactElement } from "react";
+import { ButtonHTMLAttributes, memo, ReactElement } from "react";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: string | ReactElement;
@@ -38,4 +38,4 @@ const Button = ({
 };
 
 // "text-2xl text-yellow-300 font-bold  bg-red-600 shadow-md shadow-red-400 py-3 px-10  rounded-lg"
-export default Button;
+export default memo(Button);
