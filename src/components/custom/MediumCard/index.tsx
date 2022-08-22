@@ -4,7 +4,7 @@ import Star from "../../../assets/icons/Star";
 import classNames from "classnames";
 import Button from "../Button";
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   hasDiscount?: boolean;
   productName: string;
   initialPrice: number;
@@ -22,6 +22,7 @@ const MediumCard = ({
   imgAlt,
   discountPrice,
   discountAmount,
+  ...props
 }: Props) => {
   const discountBadgeClasses = classNames(
     hasDiscount
@@ -39,7 +40,10 @@ const MediumCard = ({
   );
 
   return (
-    <div className="bg-white flex flex-col gap-2 w-64 shadow-md rounded-lg p-2 cursor-pointer">
+    <div
+      className="bg-white flex flex-col gap-2 w-64 shadow-md rounded-lg p-2 cursor-pointer"
+      {...props}
+    >
       <div className="relative rounded-md overflow-hidden">
         <span className=" absolute w-full h-full z-10 bg-gradient-to-tl from-[#dc3b3535]">
           {hasDiscount ? (
@@ -71,7 +75,9 @@ const MediumCard = ({
           <Star />
         </div>
       </div>
-      <Button variant="secondary" size="sm">خرید</Button>
+      <Button variant="secondary" size="sm">
+        خرید
+      </Button>
     </div>
   );
 };

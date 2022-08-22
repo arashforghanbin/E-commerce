@@ -1,17 +1,18 @@
 import * as React from "react";
 import Image from "next/image";
-import Star from "../../../assets/icons/Star";
-import classNames from "classnames";
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
   description: string;
   img: string;
 }
 
-const SmallCard = ({ value, description, img }: Props) => {
+const categoryCard = ({ value, description, img, ...props }: Props) => {
   return (
-    <div className="bg-white flex flex-col items-center gap-6 w-64 shadow-md rounded-lg p-2 cursor-pointer h-[18.25rem]">
+    <div
+      className="bg-white flex flex-col items-center gap-6 w-64 shadow-md rounded-lg p-2 cursor-pointer h-[18.25rem]"
+      {...props}
+    >
       <div className="relative rounded-md overflow-hidden h-[12rem]">
         <span className=" absolute w-full h-full z-10 bg-gradient-to-tl from-[#dc3b3535]"></span>
         <Image
@@ -27,4 +28,4 @@ const SmallCard = ({ value, description, img }: Props) => {
   );
 };
 
-export default SmallCard;
+export default categoryCard;

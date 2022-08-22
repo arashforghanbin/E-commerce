@@ -3,7 +3,7 @@ import Image from "next/image";
 import Star from "../../../assets/icons/Star";
 import classNames from "classnames";
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   hasDiscount?: boolean;
   productName: string;
   initialPrice: number;
@@ -21,6 +21,7 @@ const SmallCard = ({
   imgAlt,
   discountPrice,
   discountAmount,
+  ...props
 }: Props) => {
   const discountBadgeClasses = classNames(
     hasDiscount
@@ -38,7 +39,10 @@ const SmallCard = ({
   );
 
   return (
-    <div className="bg-white flex flex-col gap-2 w-64 shadow-md rounded-lg p-2 cursor-pointer h-[18.25rem]">
+    <div
+      className="bg-white flex flex-col gap-2 w-64 shadow-md rounded-lg p-2 cursor-pointer h-[18.25rem]"
+      {...props}
+    >
       <div className="relative rounded-md overflow-hidden h-[12rem]">
         <span className=" absolute w-full h-full z-10 bg-gradient-to-tl from-[#dc3b3535]">
           {hasDiscount ? (

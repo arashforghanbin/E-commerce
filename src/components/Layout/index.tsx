@@ -9,7 +9,7 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="flex flex-col z-20">
+    <div className="flex flex-col">
       <Navbar />
       {children}
       <Footer />

@@ -11,9 +11,13 @@
   --swiper-theme-color: #dc3a35 !important;
 }
 
-/* .swiper-wrapper {
-  overflow: visible !important;
-} */
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper {
+  overflow: hidden;
+}
 
 .hero-slides {
   display: flex;

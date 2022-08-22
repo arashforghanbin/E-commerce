@@ -9,7 +9,6 @@ import SwiperNext from "../../../assets/icons/SwiperNext";
 import SwiperPrev from "../../../assets/icons/SwiperPrev";
 import classNames from "classnames";
 import { fetchProductsList } from "../../../../redux/reducers/productsListReducer";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 interface Product {
@@ -28,12 +27,11 @@ interface Product {
   hasDiscount: boolean;
 }
 
-const FavProductSlider = () => {
+const SimilarProducts = () => {
   const [controlledSwiper, setControlledSwiper] = React.useState<any | null>(
     null
   );
   const dispatch = useDispatch();
-  const router = useRouter();
 
   // getting the products List
 
@@ -67,7 +65,7 @@ const FavProductSlider = () => {
   );
 
   return (
-    <section className="flex flex-col gap-8">
+    <section className="flex flex-col gap-2">
       <div className="flex items-center">
         <div className="flex gap-2">
           <button
@@ -84,16 +82,15 @@ const FavProductSlider = () => {
           </button>
         </div>
         <h3 className="text-red-600 text-xl font-bold mx-auto">
-          <span className="ml-1 text-yellow-300 favorite">محبوب ترین </span>
-          محصولات
+          محصولات مشابه
         </h3>
       </div>
-      <div className="mb-28 bg-red-600 rounded-xl shadow-lg  shadow-red-400 p-4">
+      <div className="mb-28 bg-white rounded-xl shadow-lg p-4">
         <Swiper
           onSwiper={setControlledSwiper}
           slidesPerView={1.5}
           spaceBetween={0}
-          className="mySwiper"
+          className="mySwiper flex"
           modules={[Controller]}
           breakpoints={{
             1536: {
@@ -122,9 +119,7 @@ const FavProductSlider = () => {
             tenMostFavorite.map((product) => {
               return (
                 <SwiperSlide key={product.id}>
-                  <Link
-                    href={"/product/" + spaceToUnderLine(product.productName)}
-                  >
+                  <Link  href={"/product/" + spaceToUnderLine(product.productName)}>
                     <SmallCard
                       productName={textTruncate(product.productName, 21)}
                       imgLink={product.file}
@@ -148,4 +143,4 @@ const FavProductSlider = () => {
   );
 };
 
-export default FavProductSlider;
+export default SimilarProducts;

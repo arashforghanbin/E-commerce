@@ -9,6 +9,7 @@ import SwiperNext from "../../../assets/icons/SwiperNext";
 import SwiperPrev from "../../../assets/icons/SwiperPrev";
 import classNames from "classnames";
 import { fetchCategories } from "../../../../redux/reducers/productCategoriesReducer";
+import { useRouter } from "next/router";
 const URL = "http://localhost:3004/productCategories";
 
 interface ProductCategory {
@@ -43,6 +44,12 @@ const ProductCategoriesSlider = () => {
   const swiperButtonClasses = classNames(
     "bg-green-600 hover:bg-green-700 active:bg-green-500 flex justify-center items-center w-11 h-11 rounded-full"
   );
+
+  const router = useRouter();
+
+  const handleProductCategory = (value: string) => {
+    router.push(`/products/?category=${value}`);
+  };
 
   return (
     <section className="flex flex-col gap-8">
@@ -104,6 +111,7 @@ const ProductCategoriesSlider = () => {
                     description={category.description}
                     value={category.value}
                     img={category.img}
+                    onClick={() => handleProductCategory(category.value)}
                   />
                 </SwiperSlide>
               );
