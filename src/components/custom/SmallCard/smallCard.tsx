@@ -2,6 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 import Star from "../../../assets/icons/Star";
 import classNames from "classnames";
+import { toFarsiDigits } from "../../../utils";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   hasDiscount?: boolean;
@@ -46,7 +47,9 @@ const SmallCard = ({
       <div className="relative rounded-md overflow-hidden h-[12rem]">
         <span className=" absolute w-full h-full z-10 bg-gradient-to-tl from-[#dc3b3535]">
           {hasDiscount ? (
-            <span className={discountBadgeClasses}>{discountAmount}%</span>
+            <span className={discountBadgeClasses}>
+              {toFarsiDigits(discountAmount)}%
+            </span>
           ) : (
             ""
           )}
@@ -62,15 +65,17 @@ const SmallCard = ({
       <p className="text-xl font-bold text-black">{productName}</p>
       <div className="flex justify-between">
         <div>
-          <p className={intitalPriceClasses}>{initialPrice}</p>
+          <p className={intitalPriceClasses}>{toFarsiDigits(initialPrice)}</p>
           {hasDiscount ? (
-            <p className={discountPriceClasses}>{discountPrice}</p>
+            <p className={discountPriceClasses}>
+              {toFarsiDigits(discountPrice)}
+            </p>
           ) : (
             ""
           )}
         </div>
         <div className="flex gap-2 self-end">
-          <span className="text-black font-bold">4.5</span>
+          <span className="text-black font-bold">۴.۵</span>
           <Star />
         </div>
       </div>

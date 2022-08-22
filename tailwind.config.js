@@ -49,19 +49,19 @@ module.exports = {
         },
         swing: {
           "0%": {
-            transform: " perspective(200px) rotateX(-90deg) tranlateX(240px)",
+            transform: " perspective(200px) rotateX(-90deg)",
           },
           "25%": {
-            transform: " perspective(200px) rotateX(10deg) tranlateX(240px)",
+            transform: " perspective(200px) rotateX(10deg)",
           },
           "50%": {
-            transform: " perspective(200px) rotateX(-10deg) tranlateX(240px)",
+            transform: " perspective(200px) rotateX(-10deg)",
           },
           "75%": {
-            transform: " perspective(200px) rotateX(10deg) tranlateX(240px)",
+            transform: " perspective(200px) rotateX(10deg)",
           },
           "100%": {
-            transform: " perspective(200px)  rotateX(0deg) tranlateX(240px)",
+            transform: " perspective(200px)  rotateX(0deg)",
           },
         },
         appear: {

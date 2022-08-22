@@ -17,7 +17,7 @@ interface Product {
   clicked: number;
   discount: number;
   engName: string;
-  file: string;
+  imgLink: string;
   id: string;
   madeIn: string;
   price: number;
@@ -119,10 +119,12 @@ const SimilarProducts = () => {
             tenMostFavorite.map((product) => {
               return (
                 <SwiperSlide key={product.id}>
-                  <Link  href={"/product/" + spaceToUnderLine(product.productName)}>
+                  <Link
+                    href={"/product/" + spaceToUnderLine(product.productName)}
+                  >
                     <SmallCard
                       productName={textTruncate(product.productName, 21)}
-                      imgLink={product.file}
+                      imgLink={product.imgLink}
                       imgAlt={product.engName}
                       initialPrice={product.price}
                       hasDiscount={product.hasDiscount}
