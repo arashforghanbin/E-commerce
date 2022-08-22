@@ -7,7 +7,7 @@ interface Product {
   productName: string;
   price: number;
   category: string;
-  file: string;
+  imgLink: string;
   discount: number;
   clicked: number;
   bought: number;
@@ -39,7 +39,11 @@ export const fetchProductsList: any = createAsyncThunk(
 const productsListReducer = createSlice({
   name: "productsListReducer",
   initialState: init,
-  reducers: {},
+  reducers: {
+    deleteProduct: (state, action)=> {
+      state.productsList.filter((item)=> item.id !== action.payload)
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProductsList.pending, (state) => {
@@ -55,4 +59,5 @@ const productsListReducer = createSlice({
   },
 });
 
+export const { deleteProduct } = productsListReducer.actions;
 export default productsListReducer.reducer;

@@ -18,7 +18,7 @@ interface Product {
   clicked: number;
   discount: number;
   engName: string;
-  file: string;
+  imgLink: string;
   id: string;
   madeIn: string;
   price: number;
@@ -91,7 +91,7 @@ const FavProductSlider = () => {
       <div className="mb-28 bg-red-600 rounded-xl shadow-lg  shadow-red-400 p-4">
         <Swiper
           onSwiper={setControlledSwiper}
-          slidesPerView={1.5}
+          slidesPerView={1}
           spaceBetween={0}
           className="mySwiper"
           modules={[Controller]}
@@ -127,7 +127,7 @@ const FavProductSlider = () => {
                   >
                     <SmallCard
                       productName={textTruncate(product.productName, 21)}
-                      imgLink={product.file}
+                      imgLink={product.imgLink}
                       imgAlt={product.engName}
                       initialPrice={product.price}
                       hasDiscount={product.hasDiscount}

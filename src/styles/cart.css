@@ -1,0 +1,29 @@
+.cartContainer {
+  overflow-y: auto;
+}
+
+.cartContainer::-webkit-scrollbar {
+  background-color: #89be5a66;
+  width: 12px;
+  border-radius: 1rem;
+}
+
+.cartContainer::-webkit-scrollbar-thumb {
+  background-color: #89be5a;
+  border-radius: 1rem;
+}
+
+.orderModalContainer {
+  overflow-y: auto;
+}
+
+.orderModalContainer::-webkit-scrollbar {
+  background-color: #89be5a66;
+  width: 12px;
+  border-radius: 1rem;
+}
+
+.orderModalContainer::-webkit-scrollbar-thumb {
+  background-color: #89be5a;
+  border-radius: 1rem;
+}

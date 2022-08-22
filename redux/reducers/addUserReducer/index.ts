@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const URL = "http://localhost:3004/usersList";
 
 interface UserObject {
-  id: number;
+  id: string;
   userName: string;
   email: string;
   password: string;
@@ -15,7 +15,7 @@ interface Users {
   usersStatus: "idle" | "pending" | "fulfilled" | "rejected";
 }
 
-const init: any = {
+const init: Users = {
   usersList: [],
   usersStatus: "idle",
 };
@@ -33,7 +33,7 @@ const addUserReducer = createSlice({
   initialState: init,
   reducers: {
     add: (state, action) => {
-      return state.userList.push(action.payload);
+      state.usersList.push(action.payload);
     },
   },
   extraReducers: (builder) => {

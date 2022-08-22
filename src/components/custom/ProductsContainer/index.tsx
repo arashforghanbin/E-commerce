@@ -5,7 +5,6 @@ import { RootState } from "../../../../redux/store";
 import {
   discountCalc,
   spaceToUnderLine,
-  textTruncate,
   underLineToSpace,
 } from "../../../utils";
 import MediumCard from "../MediumCard";
@@ -19,7 +18,7 @@ interface Product {
   clicked: number;
   discount: number;
   engName: string;
-  file: string;
+  imgLink: string;
   id: string;
   madeIn: string;
   price: number;
@@ -32,8 +31,8 @@ interface Product {
 const ProductsContainer = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const searchQuery = router.query.search
-  const searchedValue = underLineToSpace(searchQuery);
+  const searchQuery = router.query.search;
+  const searchedValue = underLineToSpace(searchQuery as string);
 
   React.useEffect(() => {
     dispatch(fetchProductsList());
@@ -78,6 +77,7 @@ const ProductsContainer = () => {
   }, [copiedProductsList, searchedValue]);
 
   React.useEffect(() => {
+
     switch (chosenOption) {
       case "mostSales":
         setProducts(
@@ -125,10 +125,11 @@ const ProductsContainer = () => {
                   href={"/product/" + spaceToUnderLine(item.productName)}
                 >
                   <MediumCard
-                    productName={textTruncate(item.productName, 21)}
+                    id={item.id}
+                    productName={item.productName}
                     initialPrice={item.price}
                     imgAlt={item.engName}
-                    imgLink={item.file}
+                    imgLink={item.imgLink}
                     hasDiscount={item.hasDiscount}
                     discountAmount={item.discount}
                     discountPrice={discountCalc(

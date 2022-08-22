@@ -70,7 +70,7 @@ const SignIn = () => {
           );
           dispatch(setIsModalOpen(false));
         } else {
-          router.push("http://localhost:3000/manage");
+          router.push("http://localhost:3000/admin");
           dispatch(setIsModalOpen(false));
         }
       } else {

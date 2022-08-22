@@ -8,6 +8,9 @@ import filterReducer from "./filterReducer";
 import modalReducer from "./modalReducer";
 import addUserReducer from "./addUserReducer";
 import userLoginReducer from "./userLoginReducer";
+import cartProductsReducer from "./cartProductsReducer";
+import userInfoReducer from "./userInfoReducer";
+import totalCartPriceReducer from "./totalCartPriceReducer";
 
 const combinedReducers = combineReducers({
   productsList: productsListReducer,
@@ -17,10 +20,22 @@ const combinedReducers = combineReducers({
   modalReducer,
   addUserReducer,
   userLoginReducer,
+  cartProductsReducer,
+  userInfoReducer,
+  totalCartPriceReducer,
 });
 
 const persistedReducers = persistReducer(
-  { key: "rootPersistor", storage, whitelist: ["userLoginReducer"] },
+  {
+    key: "rootPersistor",
+    storage,
+    whitelist: [
+      "userLoginReducer",
+      "cartProductsReducer",
+      "userInfoReducer",
+      "totalCartPriceReducer",
+    ],
+  },
   combinedReducers
 );
 

@@ -24,7 +24,7 @@
 body,
 html {
   font-family: "Samim";
-
+  color: #1A1A1A;
   background: #fffeda;
 }
 
@@ -32,10 +32,23 @@ html {
   min-height: 100%;
 }
 
-input:focus-visible {
+input:focus-visible,
+textarea:focus-visible {
   outline: none;
 }
 
 .toastify-class {
   font-family: "Samim";
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

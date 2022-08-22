@@ -2,7 +2,7 @@ import classNames from "classnames";
 import Link from "next/link";
 import * as React from "react";
 import Account from "../../../assets/icons/Account";
-import Cart from "../../../assets/icons/Cart";
+import CartIcon from "../../../assets/icons/CartIcon";
 import Logo from "../../../assets/icons/Logo";
 import Search from "../../../assets/icons/Search";
 import HamMenu from "../../custom/HamMenu";
@@ -56,9 +56,19 @@ const Navbar = () => {
     (state: RootState) => state.userLoginReducer.userLoggedIn
   );
 
+  const cartProducts = useSelector(
+    (state: RootState) => state.cartProductsReducer.cartProducts
+  );
+
   const handleLogOut = () => {
     dispatch(handleIsLoggedIn(false));
     dispatch(handleUserLoggedIn({ userName: "", password: "" }));
+  };
+
+  const handleRedirectToCart = () => {
+    cartProducts.length > 0
+      ? router.push("http://localhost:3000/purchase/cart")
+      : "";
   };
 
   return (
@@ -157,9 +167,16 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <IconButton>
-              <Cart />
-            </IconButton>
+            <div>
+              <IconButton onClick={() => handleRedirectToCart()}>
+                <CartIcon />
+              </IconButton>
+              {cartProducts.length > 0 && (
+                <div className=" z-20 flex items-center justify-center rounded-full text-white font-bold  bg-green-600 w-8 h-8 absolute translate-x-3 translate-y-[-4.5rem]">
+                  {cartProducts.length}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>

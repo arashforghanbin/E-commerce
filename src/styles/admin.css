@@ -1,0 +1,15 @@
+.managerProductList {
+  overflow-y: auto;
+}
+
+.managerProductList::-webkit-scrollbar {
+  appearance: none;
+  background-color: #89be5a66;
+  width: 12px;
+  border-radius: 1rem;
+}
+
+.managerProductList::-webkit-scrollbar-thumb {
+  background-color: #89be5a;
+  border-radius: 1rem;
+}
