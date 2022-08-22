@@ -4,11 +4,13 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
 import productCategoriesReducer from "./productCategoriesReducer";
 import sortReducer from "./sortReducer";
+import filterReducer from "./filterReducer";
 
 const combinedReducers = combineReducers({
   productsList: productsListReducer,
   productCategories: productCategoriesReducer,
   chosenOption: sortReducer,
+  filterReducer,
 });
 
 const persistedReducers = persistReducer(
