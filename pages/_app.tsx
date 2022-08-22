@@ -4,6 +4,7 @@ import "../src/styles/globals.css";
 import "../src/styles/homePage.css";
 import "../src/styles/swiper.css";
 import "../src/styles/sorting.css";
+import "../src/styles/modal.css";
 import { persistore, store } from "../redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";

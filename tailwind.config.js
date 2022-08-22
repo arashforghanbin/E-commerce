@@ -11,6 +11,7 @@ module.exports = {
         slideDown: "slideDown 0.5s linear",
         wiggle: "wiggle 1s linear",
         swing: "swing 1s cubic-bezier(0.75,0.4,1,1)",
+        appear: "appear 1s cubic-bezier(0.75,0.4,1,1)",
       },
       keyframes: {
         spinOnce: {
@@ -48,19 +49,36 @@ module.exports = {
         },
         swing: {
           "0%": {
-            transform: "perspective(200px) rotateX(-90deg)",
+            transform: " perspective(200px) rotateX(-90deg) tranlateX(240px)",
           },
           "25%": {
-            transform: " perspective(200px) rotateX(10deg)",
+            transform: " perspective(200px) rotateX(10deg) tranlateX(240px)",
           },
           "50%": {
-            transform: "perspective(200px) rotateX(-10deg)",
+            transform: " perspective(200px) rotateX(-10deg) tranlateX(240px)",
           },
           "75%": {
-            transform: "perspective(200px) rotateX(10deg)",
+            transform: " perspective(200px) rotateX(10deg) tranlateX(240px)",
           },
           "100%": {
-            transform: "perspective(200px)  rotateX(0deg)",
+            transform: " perspective(200px)  rotateX(0deg) tranlateX(240px)",
+          },
+        },
+        appear: {
+          "0%": {
+            transform: " scale(0)",
+          },
+          "25%": {
+            transform: " scale(0.8)",
+          },
+          "50%": {
+            transform: " scale(1.2)",
+          },
+          "75%": {
+            transform: " scale(0.9)",
+          },
+          "100%": {
+            transform: " scale(1)",
           },
         },
       },

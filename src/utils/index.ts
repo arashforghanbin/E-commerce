@@ -16,6 +16,6 @@ export const spaceToUnderLine = (input: string) => {
   return input.replace(/ /g, "_");
 };
 
-export const underLineToSpace = (input: string | string[] | undefined ) => {
+export const underLineToSpace = (input: string ) => {
   return input?.replace(/_/g, " ");
 };

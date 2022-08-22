@@ -56,10 +56,10 @@ const Manage: NextPage = () => {
     setWeight(0);
   };
   return (
-    <>
+    <> 
       <form
         onSubmit={handleAddProduct}
-        className="flex flex-col gap-4 justify-center absolute right-1/2 top-1/2 translate-x-1/2 translate-y-[-50%] w-1/2"
+        className="flex flex-col gap-4 justify-center  right-1/2 top-1/2 "
       >
         <fieldset className="flex gap-4 border p-4 border-red-700 rounded">
           <legend>محصول</legend>
@@ -86,9 +86,7 @@ const Manage: NextPage = () => {
             <option value="drinks">نوشیدنی سرد و گرم</option>
           </select>
           <input
-            onChange={(e) =>
-              setFile(`./src/assets/imgs/products/${e.target.value}.jpg`)
-            }
+            onChange={(e) => setFile(e.target.value)}
             type="text"
             placeholder="نام فایل تصویر"
           />
